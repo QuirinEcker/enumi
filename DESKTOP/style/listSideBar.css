@@ -3,7 +3,7 @@
 	height: 100vh;
 	
 	background-color: rgba(64,64,64,1.00);
-	color: white;
+	color: #F3C113;
 }
 
 #enum-list {
@@ -25,5 +25,5 @@
 .enum span {
 	width: 80%;
 	font-size: 40px;
-	font-family: arial;
+	font-family: 'Source Sans Pro', sans-serif;
 }
