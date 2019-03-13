@@ -1,9 +1,10 @@
 #list-side-bar {
-	width: 20%;
+	position: fixed;
+	width: 25%;
 	height: 100vh;
 	
-	background-color: rgba(64,64,64,1.00);
-	color: #F3C113;
+	background-color: #00B86C;
+	color: white;
 }
 
 #enum-list {
@@ -11,15 +12,18 @@
 }
 
 .enum {
-	height: 20%;
+	height: 15%;
 	width: 100%;
 	
-	background-color: rgba(73,73,73,1.00);
-	margin-bottom: 1%;
+	background-image: -webkit-linear-gradient(#00b8a0, #00b89b, #00b895, #00b88f, #00b888);
+	background-image: -o-linear-gradient(#00b8a0, #00b89b, #00b895, #00b88f, #00b888);
+	background-image: linear-gradient(#00b8a0, #00b89b, #00b895, #00b88f, #00b888);
 	
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	
+	cursor: pointer;
 }
 
 .enum span {
@@ -27,3 +31,32 @@
 	font-size: 40px;
 	font-family: 'Source Sans Pro', sans-serif;
 }
+
+#enum-add span {
+	width: auto;
+}
+
+#setting-menu {
+	height: 15%;
+	width: 100%;
+	
+	display: flex;
+	flex-direction: row;
+}
+
+.settings-point {
+	width: 33.33%;
+	height: 100%;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.settings-point img {
+	position: relative;
+	top: 50%;
+	width: 100px;
+	height: 100px;
+}
+
