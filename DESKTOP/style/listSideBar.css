@@ -3,7 +3,7 @@
 	width: 25%;
 	height: 100vh;
 	
-	background-color: #00B86C;
+	background-color: #00B76F;
 	color: white;
 }
 
@@ -15,10 +15,6 @@
 	height: 15%;
 	width: 100%;
 	
-	background-image: -webkit-linear-gradient(#00b8a0, #00b89b, #00b895, #00b88f, #00b888);
-	background-image: -o-linear-gradient(#00b8a0, #00b89b, #00b895, #00b88f, #00b888);
-	background-image: linear-gradient(#00b8a0, #00b89b, #00b895, #00b88f, #00b888);
-	
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -27,9 +23,23 @@
 }
 
 .enum span {
-	width: 80%;
+	width: auto;
 	font-size: 40px;
 	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.hover {
+	z-index: -1;
+	position: absolute;
+	height: 15%;
+	width: 100%;
+}
+
+.hover div {
+	background-color: #007943;
+	width: 0;
+	height: 100%;
+	transition: 0.2s all;
 }
 
 #enum-add span {
@@ -51,6 +61,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 }
 
 .settings-point img {
@@ -58,5 +69,7 @@
 	top: 50%;
 	width: 100px;
 	height: 100px;
+	
+	transition: 0.2s all;
 }
 
