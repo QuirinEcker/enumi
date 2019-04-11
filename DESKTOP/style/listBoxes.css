@@ -1,0 +1,40 @@
+#current-list {
+	position: fixed;
+	left: 25%;
+	width: 37.5%;
+	height: 100vh;
+	
+	background-color: #00B76F;
+}
+
+#recommended-list {
+	position: fixed;
+	left: 62.5%;
+	width: 37.5%;
+	height: 100vh;
+	
+	background-color: #00B76F;
+}
+
+.search-box {
+	height: 100px;
+	width: 100%;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.search {
+	all: unset;
+	width: 80%;
+	height: 20px;
+	padding: 10px;
+	background-color: white;
+	border-radius: 20px;
+	-webkit-box-shadow: 3px 3px 3px 3px #4B4141;
+	box-shadow: 3px 3px 3px 3px #4B4141;
+	
+	font-family: 'Source Sans Pro', sans-serif;
+}
+

@@ -9,7 +9,7 @@
 
 #enum-list {
 	height: 85%;
-	overflow: scroll;
+	overflow-y: scroll;
 }
 
 .enum {
