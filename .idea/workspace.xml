@@ -2,33 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e223e8da-89e8-48f6-a37a-b40b44e6c95c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Website/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/assets/video/preload/Adobe After Effects Auto-Save/preLoad auto-save 1.aep" beforeDir="false" afterPath="$PROJECT_DIR$/Website/assets/video/preload/Adobe After Effects Auto-Save/preLoad auto-save 1.aep" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/assets/video/preload/Adobe After Effects Auto-Save/preLoad auto-save 2.aep" beforeDir="false" afterPath="$PROJECT_DIR$/Website/assets/video/preload/Adobe After Effects Auto-Save/preLoad auto-save 2.aep" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/assets/video/preload/Adobe After Effects Auto-Save/preLoad auto-save 3.aep" beforeDir="false" afterPath="$PROJECT_DIR$/Website/assets/video/preload/Adobe After Effects Auto-Save/preLoad auto-save 3.aep" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/assets/video/preload/Adobe After Effects Auto-Save/preLoad auto-save 4.aep" beforeDir="false" afterPath="$PROJECT_DIR$/Website/assets/video/preload/Adobe After Effects Auto-Save/preLoad auto-save 4.aep" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/assets/video/preload/Adobe After Effects Auto-Save/preLoad auto-save 5.aep" beforeDir="false" afterPath="$PROJECT_DIR$/Website/assets/video/preload/Adobe After Effects Auto-Save/preLoad auto-save 5.aep" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/assets/video/preload/preLoad.aep" beforeDir="false" afterPath="$PROJECT_DIR$/Website/assets/video/preload/preLoad.aep" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/img/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Website/img/logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/img/settings.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Website/img/settings.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/img/share.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Website/img/share.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/img/templates.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Website/img/templates.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/img/vectorGraphics/Untitled-1.ai" beforeDir="false" afterPath="$PROJECT_DIR$/Website/img/vectorGraphics/Untitled-1.ai" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/img/vectorGraphics/logo-minimal.ai" beforeDir="false" afterPath="$PROJECT_DIR$/Website/img/vectorGraphics/logo-minimal.ai" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/img/vectorGraphics/logo.ai" beforeDir="false" afterPath="$PROJECT_DIR$/Website/img/vectorGraphics/logo.ai" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/img/vectorGraphics/settings.ai" beforeDir="false" afterPath="$PROJECT_DIR$/Website/img/vectorGraphics/settings.ai" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/img/vectorGraphics/share.ai" beforeDir="false" afterPath="$PROJECT_DIR$/Website/img/vectorGraphics/share.ai" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/img/vectorGraphics/templates.ai" beforeDir="false" afterPath="$PROJECT_DIR$/Website/img/vectorGraphics/templates.ai" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/scripts/add.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/scripts/add.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/scripts/hoverBoxScrollFolower.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/scripts/hoverBoxScrollFolower.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/scripts/showSetting.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/scripts/showSetting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/style/listBoxes.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/style/listBoxes.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/style/listSideBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/style/listSideBar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DESKTOP/style/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/Website/style/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Website/scripts/Classes/Enum.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Website/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/scripts/add.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/scripts/add.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/scripts/hoverBoxScrollFolower.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/Website/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -43,63 +22,87 @@
     <session id="333887141">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
           <entry key="html" value="1" />
-          <entry key="js" value="2" />
+          <entry key="js" value="9" />
           <entry key="svg" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="JavaScript" value="2" />
+          <entry key="JavaScript" value="9" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="SVG" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="86" />
-          <entry key="js" value="1518" />
+          <entry key="html" value="119" />
+          <entry key="js" value="2757" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="86" />
-          <entry key="JavaScript" value="1518" />
+          <entry key="HTML" value="119" />
+          <entry key="JavaScript" value="2757" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Website/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="19" column="66" lean-forward="true" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
+            <state relative-caret-position="540">
+              <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Website/index.html">
+        <entry file="file://$PROJECT_DIR$/Website/scripts/add.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
+            <state relative-caret-position="90">
+              <caret line="3" column="47" lean-forward="true" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/scripts/Classes/Enum.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="12" selection-start-column="12" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Website/Config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/Website/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -117,9 +120,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Website/server.js" />
-        <option value="$PROJECT_DIR$/Website/index.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/Website/Config.js" />
+        <option value="$PROJECT_DIR$/Website/server.js" />
+        <option value="$PROJECT_DIR$/Website/scripts/Classes/Enum.js" />
+        <option value="$PROJECT_DIR$/Website/scripts/add.js" />
+        <option value="$PROJECT_DIR$/Website/index.html" />
       </list>
     </option>
   </component>
@@ -159,6 +165,12 @@
               <item name="enumi" type="462c0819:PsiDirectoryNode" />
               <item name="Website" type="462c0819:PsiDirectoryNode" />
               <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="enumi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="enumi" type="462c0819:PsiDirectoryNode" />
+              <item name="Website" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="enumi" type="b2602c69:ProjectViewProjectNode" />
@@ -213,31 +225,32 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1555115307283</updated>
-      <workItem from="1555115310789" duration="6045000" />
+      <workItem from="1555115310789" duration="6296000" />
+      <workItem from="1555180560893" duration="12266000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6045000" />
+    <option name="totallyTimeSpent" value="18562000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="3" y="23" width="2350" height="1321" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24989265" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3295362" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39951178" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -260,22 +273,75 @@
     <entry file="file://$PROJECT_DIR$/Website/img/logo.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8520">
+          <caret line="284" column="5" lean-forward="true" selection-start-line="284" selection-start-column="5" selection-end-line="284" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/8.12.0/core-modules/tls.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7170">
+          <caret line="258" selection-start-line="258" selection-end-line="258" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/javascript/nodejs/library/node-globals-stub.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/8.12.0/core-modules/_http_server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16342">
+          <caret line="694" selection-start-line="694" selection-end-line="694" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/8.12.0/core-modules/http.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="24" column="29" lean-forward="true" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/Config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Website/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="19" column="66" lean-forward="true" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
+        <state relative-caret-position="540">
+          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/scripts/Classes/Enum.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Website/scripts/add.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="3" column="47" lean-forward="true" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Website/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
+        <state relative-caret-position="372">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
