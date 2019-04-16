@@ -1,7 +1,18 @@
+"use strict";
+
+function showPrompt() {
+	let prompt = document.querySelector('#prompt')
+	let promptContainer = document.querySelector('#prompt-container')
+
+	promptContainer.style.backgroundColor = "rgba(0,0,0,0.75)"
+}
+
 window.addEventListener("load", () => {
-	let addButton = document.querySelector("#enum-add")
+	let addButton = document.querySelector("#enum-add");
 
 	addButton.addEventListener("click", () => {
+		showPrompt();
+
 		let enumList = document.querySelector("#enum-list");
 		
 		let hoverContainer = document.createElement("div");

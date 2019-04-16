@@ -3,7 +3,7 @@ const fs = module.require('fs');
 const Config = require('./Config');
 
 const server = http.createServer(function (req, res) {
-    const config = new Config();
+    console.log(req.url);
     if (req.url === '/')
         respondWithFile(res, req, './index.html', 'text/html');
     else
