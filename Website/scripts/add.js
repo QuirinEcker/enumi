@@ -1,10 +1,15 @@
 "use strict";
 
 function showPrompt() {
-	let prompt = document.querySelector('#prompt')
-	let promptContainer = document.querySelector('#prompt-container')
+    let promptBackground = document.querySelector('#prompt-background');
+    let prompt = document.querySelector('#prompt');
+    let promptContainer = document.querySelector('#prompt-container');
 
-	promptContainer.style.backgroundColor = "rgba(0,0,0,0.75)"
+    promptContainer.style.display = "flex";
+    setTimeout(() => {
+        promptBackground.style.opacity = "0.8"
+        prompt.style.transform = "scale(1,1)"
+    }, 10);
 }
 
 window.addEventListener("load", () => {

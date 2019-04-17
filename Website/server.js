@@ -3,11 +3,14 @@ const fs = module.require('fs');
 const Config = require('./Config');
 
 const server = http.createServer(function (req, res) {
-    console.log(req.url);
-    if (req.url === '/')
+    if (req.url === '/') {
         respondWithFile(res, req, './index.html', 'text/html');
-    else
+        console.log('Pulling files from Webserver: ')
+    } else {
         respondWithFile(res, req, '.' + req.url, Config.getMimeType(req.url));
+    }
+
+    console.log(` => ${req.url}`);
 });
 
 function respondWithFile(res, req, path, type) {
