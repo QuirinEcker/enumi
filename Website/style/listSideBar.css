@@ -8,22 +8,41 @@
 }
 
 #enum-list {
-	height: 85%;
+	height: 90%;
 	overflow-y: scroll;
+	scrollbar-width: none;
 }
 
 .enum {
 	height: 15%;
 	width: 100%;
-	
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	
 	cursor: pointer;
+	background-color: #007943;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
 }
 
-.enum span {
+.enum:hover {
+	background-color: #004E27;
+}
+
+.content {
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.enum .content span {
 	width: auto;
 	font-size: 40px;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -48,15 +67,16 @@
 }
 
 #setting-menu {
-	height: 15%;
+	height: 10%;
 	width: 100%;
 	
 	display: flex;
 	flex-direction: row;
+	background-color: #007943;
 }
 
 .settings-point {
-	width: 33.33%;
+	width: 100%;
 	height: 100%;
 	
 	display: flex;
@@ -68,8 +88,8 @@
 .settings-point img {
 	position: relative;
 	top: 50%;
-	width: 100px;
-	height: 100px;
+	width: 80px;
+	height: 80px;
 	
 	transition: 0.2s all;
 }
