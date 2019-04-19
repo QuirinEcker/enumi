@@ -1,13 +1,17 @@
+import {writeIntoEnumList} from "/scripts/Prompt.js";
+
 class Enum {
-    constructor(name, settings, catigories, sortingOrder, description, owner) {
+    constructor(name, catigories, description, owner) {
         this.name = name;
         this.description = description;
-        this.settings = settings;
         this.catigories = catigories;
-        this.sortingOrder = sortingOrder;
-        this.creationDate = date.now();
+        this.creationDate = Date.now();
         this.owner = owner;
+    }
+
+    loadListIntoUI() {
+        writeIntoEnumList(this)
     }
 }
 
-module.exports = Enum;
+export {Enum};

@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="/style/listBoxes.css">
 		<link rel="stylesheet" href="/style/prompt.css">
 		<script src="/scripts/showSetting.js" type="text/javascript"></script>
-		<script src="/scripts/add.js" type="text/javascript"></script>
+		<script src="/scripts/Prompt.js" type="module"></script>
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 		<!--font-family: 'Source Sans Pro', sans-serif;-->
 	</head>
@@ -25,25 +25,31 @@
 
 					<div id="prompt-content">
 						<div id="information">
-							<input type="text" id="input-list-name" placeholder="Name">
-							<textarea id="input-list-description" rows="10" cols="70" placeholder="Description"></textarea>
+							<div id="information-container">
+								<input type="text" id="input-list-name" placeholder="Name">
+								<textarea id="input-list-description" rows="10" cols="70" placeholder="Description"></textarea>
 
-							<span>Icon</span>
-							<div id="input-list-icon"></div>
+								<span>Icon</span>
+								<div id="input-list-icon"></div>
 
-							<span>Wallpaper</span>
-							<div id="input-list-wallpaper"></div>
+								<span>Wallpaper</span>
+								<div id="input-list-wallpaper"></div>
+							</div>
 						</div>
 
 						<div id="border"></div>
 
 						<div id="tags">
 
-
 						</div>
 					</div>
 
-					<div id="prompt-submit-box"></div>
+					<div id="prompt-submit-box">
+						<div id="button-container">
+							<div id="cancel-button"> Cancel </div>
+							<div id="submit-button"> Create </div>
+						</div>
+					</div>
 				</div>
 			</div>
 
@@ -52,7 +58,9 @@
 				<div id="list-side-bar">
 					<div id="enum-list">
 						<div class="enum" id="enum-add">
-							<div class="content"><span>+</span></div>
+							<div class="content">
+								<span>+</span>
+							</div>
 						</div>
 					</div>
 

@@ -1,3 +1,11 @@
+@keyframes errorAnimation {
+    0% {transform: rotate(0)}
+    25% {transform: rotate(1deg)}
+    50% {transform: rotate(-1deg)}
+    75% {transform: rotate(1deg)}
+    100% {transform: rotate(0deg)}
+}
+
 #prompt-container {
     position: fixed;
     z-index: 1;
@@ -34,9 +42,10 @@
 
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 
 	width: 60%;
-	height: 60%;
+	height: 80%;
     transform: scale(0,0);
     -webkit-transition: transform 0.3s;
     -moz-transition: transform 0.3s;
@@ -47,7 +56,7 @@
 
 #prompt #prompt-preview-menu-bar {
     width: 100%;
-    height: 100px;
+    height: 10%;
 
     border-radius: 20px 20px 0 0;
     display: flex;
@@ -66,8 +75,7 @@
 
 #prompt #prompt-content {
     width: 100%;
-    margin-top: 10px;
-    padding: 100px;
+    height: 70%;
 
     display: flex;
     justify-content: center;
@@ -79,31 +87,42 @@
     width: 49.9%;
 
     display: flex;
+    align-items: center;
     flex-direction: column;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+#prompt #prompt-content #information #information-container {
+    margin-top: 5%;
+    width: 80%;
+}
+
 
 #prompt #prompt-content #information input {
-    all:unset;
     height: 50px;
-    width: 50%;
+    width: 96%;
     margin: 10px 0;
     background-color: white;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-size: 20px;
     border-radius: 20px;
+    border: 1px solid white;
 }
 #prompt #prompt-content #information textarea {
-    width: 70%;
+    font-size: 20px;
+    width: 96%;
+    background-color: white;
     margin: 10px 0;
     border-radius: 20px;
-    padding: 20px;
+    border: 1px solid white;
+    padding: 2%;
 }
 
 #prompt #prompt-content #border {
     height: 100%;
-    width: 0.2%;
+    width: 2px;
+
 
     background-color: white;
 }
@@ -111,4 +130,89 @@
 #prompt #prompt-content #tags {
     height: 100%;
     width: 49.9%;
+}
+
+#prompt #prompt-submit-box {
+    width: 100%;
+    height: 10%;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+#prompt #prompt-content #information .error-animation {
+    border: 1px solid red;
+    -webkit-animation-name: errorAnimation;
+    -moz-animation-name: errorAnimation;
+    -o-animation-name: errorAnimation;
+    animation-name: errorAnimation;
+
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+}
+
+#prompt #prompt-content #information .error-message {
+    color: red;
+    margin-left: 10px;
+    font-size: 35px;
+}
+
+#prompt #prompt-submit-box #button-container {
+    width: 20%;
+    height: 100%;
+    padding-right: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#prompt #prompt-submit-box #button-container #submit-button {
+    width: 45%;
+    height: 40%;
+
+    color: black;
+    background-color: white;
+    border-radius: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+#prompt #prompt-submit-box #button-container #cancel-button {
+    width: 45%;
+    height: 40%;
+
+    color: black;
+    background-color: white;
+    border-radius: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+#prompt #prompt-submit-box #button-container #cancel-button:hover {
+    background-color: lightcoral;
+}
+
+#prompt #prompt-submit-box #button-container #submit-button:hover {
+    background-color: lightgreen;
 }
