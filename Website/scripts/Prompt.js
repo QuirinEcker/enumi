@@ -1,5 +1,7 @@
 import {Enum} from "/scripts/Classes/Enum.js"
 
+let icon = "/img/logo.svg";
+
 function writeIntoEnumList(enumListObject) {
     if (enumListObject.name === "") {
         let informationContainer = document.querySelector("#information-container");
@@ -12,8 +14,13 @@ function writeIntoEnumList(enumListObject) {
     } else {
         let addButton = document.querySelector("#enum-add");
         let enumList = document.querySelector("#enum-list");
+
         let textElement = document.createElement("span");
         textElement.textContent = enumListObject.name;
+
+        let iconElement = document.createElement("img");
+        iconElement.classList.add("icon");
+        iconElement.src = enumListObject.icon;
 
         let contentElement = document.createElement("div");
         contentElement.classList.add("content")
@@ -23,6 +30,7 @@ function writeIntoEnumList(enumListObject) {
 
         enumElement.appendChild(contentElement);
         contentElement.appendChild(textElement);
+        contentElement.insertBefore(iconElement, textElement);
 
         enumList.insertBefore(enumElement, addButton);
         closePrompt();
@@ -34,7 +42,6 @@ function removeErrorMessage(inputFild, informationContainer) {
         informationContainer.removeChild(informationContainer.children[1])
         inputFild.classList.toggle("error-animation");
     }
-
 }
 
 function resetInputs() {
@@ -81,8 +88,34 @@ function createNewEnum() {
     let nameBox = document.querySelector('#input-list-name');
     let name = nameBox.value;
 
-    let newEnum = new Enum(name, "", description, "");
-    newEnum.loadListIntoUI()
+    let newEnum = new Enum(name, "", description, icon, "");
+    newEnum.loadListIntoUI();
+}
+
+function toggleOtherSelectedOff(parent) {
+     let children = Array.from(parent.children);
+
+     children.forEach(function(item, index) {
+         if (item.classList.contains("selected-icon")) {
+             item.classList.toggle("selected-icon");
+             item.style.width = `${item.clientWidth + 2}px`;
+         }
+     });
+}
+
+function loadSelectedListIcon() {
+    let iconContainer = document.querySelector("#input-list-icon");
+    let children = Array.from(iconContainer.children);
+
+    children.forEach((item) => {
+        if (item.classList.contains("selected-icon")) {
+            item.style.width = `${item.clientWidth - 2}px`;
+        }
+    });
+}
+
+function selectItem(icon) {
+
 }
 
 window.addEventListener("load", () => {
@@ -90,6 +123,35 @@ window.addEventListener("load", () => {
 	let promptBackground = document.querySelector("#prompt-background");
     let promptCancel = document.querySelector('#cancel-button');
     let promptSubmit = document.querySelector('#submit-button');
+    let nameInput = document.querySelector('#input-list-name');
+    let title = document.querySelector("#title");
+    let iconTitle = document.querySelector("#input-icon-title");
+    let iconContainer = document.querySelector("#input-list-icon");
+    let iconContainerChildren = Array.from(iconContainer.children);
+
+    iconContainerChildren.forEach((item) => {
+        item.addEventListener("click", function() {
+            selectItem(this);
+            let currentIcon = document.querySelector("#current-icon");
+            currentIcon.src = this.children[0].src;
+            icon = this.children[0].src;
+            toggleOtherSelectedOff(this.parentElement);
+            console.log(this.clientHeight);
+            //this.style.width= `${this.clientWidth - 2}px`;
+            this.classList.toggle("selected-icon");
+            loadSelectedListIcon()
+        });
+    });
+
+    iconTitle.addEventListener("click", function() {
+        this.children[this.children.length-1].classList.toggle("enroll-arrow");
+        iconContainer.classList.toggle("enroll");
+        loadSelectedListIcon();
+    });
+
+    nameInput.addEventListener("input", function() {
+        title.textContent = this.value;
+    });
 
 	addButton.addEventListener("click", () => {
         openPrompt();

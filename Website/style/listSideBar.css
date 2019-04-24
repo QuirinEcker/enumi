@@ -39,14 +39,32 @@
 	height: 100%;
 
 	display: flex;
-	justify-content: center;
 	align-items: center;
+
+    padding-left: 2%;
+}
+
+#enum-add .content {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-left: unset;
 }
 
 .enum .content span {
 	width: auto;
-	font-size: 40px;
+	font-size: 6vh;
 	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.enum .content .icon {
+    width: available;
+    height: 80%;
+    margin-right: 8%;
 }
 
 #enum-add span {
