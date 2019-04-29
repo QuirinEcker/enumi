@@ -56,7 +56,7 @@
 
 #prompt #prompt-preview-menu-bar {
     width: 100%;
-    height: 10%;
+    height: 15%;
 
     border-radius: 20px 20px 0 0;
     display: flex;
@@ -65,12 +65,18 @@
     background-color: white;
 }
 
+#prompt #prompt-preview-menu-bar #title-bar-current-icon {
+    height: 80%;
+    width: 100px;
+    margin-left: 10px;
+}
+
 #prompt #prompt-preview-menu-bar span {
     position: relative;
-    left: 60px;
     font-family: 'Source Sans Pro', sans-serif;
+    margin-left: 10px;
 
-    font-size: 70px;
+    font-size: 7vh;
 }
 
 #prompt #prompt-content {
@@ -140,6 +146,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
 }
 
 #prompt #prompt-content #information #input-icon #input-icon-title #left {
@@ -156,16 +168,24 @@
 
 #prompt #prompt-content #information #input-icon #drop-down-arrow {
     height: 40%;
+
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     -o-transform: rotate(90deg);
+
     transform: rotate(90deg);
     -webkit-transition: transform 0.25s;
     -moz-transition: transform 0.25s;
     -ms-transition: transform 0.25s;
     -o-transition: transform 0.25s;
     transition: transform 0.25s;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
 }
 
 #prompt #prompt-content #information #input-icon #input-icon-title .enroll-arrow {
@@ -184,7 +204,7 @@
     padding: 0 2%;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
     overflow: hidden;
@@ -203,7 +223,8 @@
 }
 
 #prompt #prompt-content #information #input-icon #input-list-icon div {
-    width: 23%;
+    width: 100px;
+    height: 100px;
     background-color: white;
     margin: 1%;
     border-radius: 20px;
@@ -211,10 +232,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+#prompt #prompt-content #information #input-icon #input-list-icon div:hover {
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
 }
 
 #prompt #prompt-content #information #input-icon #input-list-icon .selected-icon {
-    border: 1px solid black;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
 }
 
 #prompt #prompt-content #information #input-icon #input-list-icon div:after {
@@ -260,7 +301,7 @@
     animation-timing-function: linear;
 }
 
-#prompt #prompt-content #information .error-message {
+#prompt #prompt-content #information #errors-name span {
     color: red;
     margin-left: 10px;
     font-size: 35px;

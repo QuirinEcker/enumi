@@ -1,47 +1,41 @@
 import {Enum} from "/scripts/Classes/Enum.js"
 
 let icon = "/img/logo.svg";
+const MAXNAMELENGHT = 50;
 
 function writeIntoEnumList(enumListObject) {
-    if (enumListObject.name === "") {
-        let informationContainer = document.querySelector("#information-container");
-        let nameBox = document.querySelector('#input-list-name');
-        nameBox.classList.toggle("error-animation");
-        let errormessage = document.createElement("span");
-        errormessage.textContent = "Please enter a name !";
-        errormessage.classList.add("error-message");
-        informationContainer.insertBefore(errormessage, informationContainer.children[1]);
-    } else {
-        let addButton = document.querySelector("#enum-add");
-        let enumList = document.querySelector("#enum-list");
+    let addButton = document.querySelector("#enum-add");
+    let enumList = document.querySelector("#enum-list");
 
-        let textElement = document.createElement("span");
-        textElement.textContent = enumListObject.name;
+    let textElement = document.createElement("span");
+    textElement.textContent = enumListObject.name;
 
-        let iconElement = document.createElement("img");
-        iconElement.classList.add("icon");
-        iconElement.src = enumListObject.icon;
+    let iconElement = document.createElement("img");
+    iconElement.classList.add("icon");
+    iconElement.src = enumListObject.icon;
 
-        let contentElement = document.createElement("div");
-        contentElement.classList.add("content")
+    let contentElement = document.createElement("div");
+    contentElement.classList.add("content")
 
-        let enumElement = document.createElement("div");
-        enumElement.classList.add("enum");
+    let enumElement = document.createElement("div");
+    enumElement.classList.add("enum");
 
-        enumElement.appendChild(contentElement);
-        contentElement.appendChild(textElement);
-        contentElement.insertBefore(iconElement, textElement);
+    enumElement.appendChild(contentElement);
+    contentElement.appendChild(textElement);
+    contentElement.insertBefore(iconElement, textElement);
 
-        enumList.insertBefore(enumElement, addButton);
-        closePrompt();
-    }
+    enumList.insertBefore(enumElement, addButton);
+    closePrompt();
 }
 
-function removeErrorMessage(inputFild, informationContainer) {
-    if (informationContainer.children[1].classList.length > 0) {
-        informationContainer.removeChild(informationContainer.children[1])
+function removeErrorMessage() {
+    let errorContainer = document.querySelector("#errors-name");
+    let errorContainerChildren = Array.from(errorContainer.children);
+
+    errorContainerChildren.forEach((item) => {
+        informationContainer.removeChild(item);
         inputFild.classList.toggle("error-animation");
-    }
+    });
 }
 
 function resetInputs() {
@@ -82,40 +76,59 @@ function openPrompt() {
     }, 100);
 }
 
+function noError(description, name) {
+    if (name === "")
+        return false;
+    else if(name.length > MAXNAMELENGHT)
+        return false;
+    else
+        true
+}
+
+function outPutNoNameError(errorMessages) {
+    let errorBox = document.querySelector("#errors-name");
+    let nameBox = document.querySelector('#input-list-name');
+    nameBox.classList.toggle("error-animation");
+
+    errorMessages.forEach((item) => {
+        let newError = document.createElement("span");
+        newError.textContent = item;
+        errorBox.appendChild(newError);
+    })
+}
+
+function getErrorMessages(name, description) {
+    let errors = new Array();
+
+    if (name === "")
+        errors.push("Please enter a name");
+    if (name.length > MAXNAMELENGHT)
+        errors.push("Name is to long");
+
+    return errors;
+}
+
 function createNewEnum() {
+    removeErrorMessage();
     let descriptionBox = document.querySelector('#input-list-description')
     let description = descriptionBox.value;
     let nameBox = document.querySelector('#input-list-name');
     let name = nameBox.value;
 
-    let newEnum = new Enum(name, "", description, icon, "");
-    newEnum.loadListIntoUI();
+    if (noError(description, name)) {
+        let newEnum = new Enum(name, "", description, icon, "");
+        newEnum.loadListIntoUI();
+    } else
+        outPutNoNameError(getErrorMessages(name, description));
 }
 
 function toggleOtherSelectedOff(parent) {
-     let children = Array.from(parent.children);
+    let children = Array.from(parent.children);
 
-     children.forEach(function(item, index) {
-         if (item.classList.contains("selected-icon")) {
-             item.classList.toggle("selected-icon");
-             item.style.width = `${item.clientWidth + 2}px`;
-         }
-     });
-}
-
-function loadSelectedListIcon() {
-    let iconContainer = document.querySelector("#input-list-icon");
-    let children = Array.from(iconContainer.children);
-
-    children.forEach((item) => {
-        if (item.classList.contains("selected-icon")) {
-            item.style.width = `${item.clientWidth - 2}px`;
-        }
+    children.forEach(function (item) {
+        if (item.classList.contains("selected-icon"))
+            item.classList.toggle("selected-icon");
     });
-}
-
-function selectItem(icon) {
-
 }
 
 window.addEventListener("load", () => {
@@ -128,25 +141,27 @@ window.addEventListener("load", () => {
     let iconTitle = document.querySelector("#input-icon-title");
     let iconContainer = document.querySelector("#input-list-icon");
     let iconContainerChildren = Array.from(iconContainer.children);
+    let iconTitlePreview = document.querySelector("#title-bar-current-icon");
+    let iconSelectPreview = document.querySelector("#current-icon");
+
+    iconTitlePreview.src = icon;
+    iconSelectPreview.src = icon;
 
     iconContainerChildren.forEach((item) => {
         item.addEventListener("click", function() {
-            selectItem(this);
             let currentIcon = document.querySelector("#current-icon");
-            currentIcon.src = this.children[0].src;
+            iconSelectPreview.src = this.children[0].src;
+            iconTitlePreview.src = this.children[0].src;
             icon = this.children[0].src;
             toggleOtherSelectedOff(this.parentElement);
             console.log(this.clientHeight);
-            //this.style.width= `${this.clientWidth - 2}px`;
             this.classList.toggle("selected-icon");
-            loadSelectedListIcon()
         });
     });
 
     iconTitle.addEventListener("click", function() {
         this.children[this.children.length-1].classList.toggle("enroll-arrow");
         iconContainer.classList.toggle("enroll");
-        loadSelectedListIcon();
     });
 
     nameInput.addEventListener("input", function() {
