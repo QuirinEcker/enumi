@@ -31,7 +31,9 @@ function writeIntoEnumList(enumListObject) {
 function removeErrorMessage(inputField, informationContainer) {
     let errorContainer = document.querySelector("#errors-name");
     let errorContainerChildren = Array.from(errorContainer.children);
-    inputField.classList.toggle("error-animation");
+
+    if (inputField.classList.contains("error-animation"))
+        inputField.classList.toggle("error-animation");
 
     errorContainerChildren.forEach((item) => {
         errorContainer.removeChild(item);
@@ -95,7 +97,12 @@ function noError(description, name) {
 function outPutNoNameError(errorMessages) {
     let errorBox = document.querySelector("#errors-name");
     let nameBox = document.querySelector('#input-list-name');
-    nameBox.classList.toggle("error-animation");
+
+    console.log(nameBox.classList);
+    setTimeout(() => {
+        nameBox.classList.toggle("error-animation");
+        console.log(nameBox.classList);
+    }, 100)
 
     errorMessages.forEach((item) => {
         let newError = document.createElement("span");
