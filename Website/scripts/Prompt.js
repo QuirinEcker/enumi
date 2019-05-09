@@ -1,7 +1,7 @@
 import {Enum} from "/scripts/Classes/Enum.js"
 
 let icon = "/img/logo.svg";
-const MAXNAMELENGHT = 50;
+const MAXNAMELENGHT = 15;
 
 function writeIntoEnumList(enumListObject) {
     let addButton = document.querySelector("#enum-add");
@@ -15,7 +15,7 @@ function writeIntoEnumList(enumListObject) {
     iconElement.src = enumListObject.icon;
 
     let contentElement = document.createElement("div");
-    contentElement.classList.add("content")
+    contentElement.classList.add("content");
 
     let enumElement = document.createElement("div");
     enumElement.classList.add("enum");
@@ -28,14 +28,15 @@ function writeIntoEnumList(enumListObject) {
     closePrompt();
 }
 
-function removeErrorMessage() {
+function removeErrorMessage(inputField, informationContainer) {
     let errorContainer = document.querySelector("#errors-name");
     let errorContainerChildren = Array.from(errorContainer.children);
+    inputField.classList.toggle("error-animation");
 
     errorContainerChildren.forEach((item) => {
-        informationContainer.removeChild(item);
-        inputFild.classList.toggle("error-animation");
+        errorContainer.removeChild(item);
     });
+    console.log("... deleted Error Messages")
 }
 
 function resetInputs() {
@@ -77,12 +78,18 @@ function openPrompt() {
 }
 
 function noError(description, name) {
+    let errorNum = 0;
+
     if (name === "")
-        return false;
-    else if(name.length > MAXNAMELENGHT)
+        errorNum++;
+    if (name.length > MAXNAMELENGHT) {
+        errorNum++
+    }
+
+    if (errorNum > 0)
         return false;
     else
-        true
+        return true;
 }
 
 function outPutNoNameError(errorMessages) {
@@ -109,11 +116,11 @@ function getErrorMessages(name, description) {
 }
 
 function createNewEnum() {
-    removeErrorMessage();
     let descriptionBox = document.querySelector('#input-list-description')
     let description = descriptionBox.value;
     let nameBox = document.querySelector('#input-list-name');
     let name = nameBox.value;
+    resetInputs();
 
     if (noError(description, name)) {
         let newEnum = new Enum(name, "", description, icon, "");
