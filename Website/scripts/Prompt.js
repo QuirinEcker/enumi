@@ -102,7 +102,7 @@ function outPutNoNameError(errorMessages) {
     setTimeout(() => {
         nameBox.classList.toggle("error-animation");
         console.log(nameBox.classList);
-    }, 100)
+    }, 100);
 
     errorMessages.forEach((item) => {
         let newError = document.createElement("span");
@@ -145,13 +145,43 @@ function toggleOtherSelectedOff(parent) {
     });
 }
 
+function selectIcon(iconPicture) {
+    let iconTitlePreview = document.querySelector("#title-bar-current-icon");
+    let iconSelectPreview = document.querySelector("#current-icon");
+    let currentIcon = document.querySelector("#current-icon");
+
+    iconSelectPreview.src = iconPicture.children[0].src;
+    iconTitlePreview.src = iconPicture.children[0].src;
+    icon = iconPicture.children[0].src;
+
+    toggleOtherSelectedOff(iconPicture.parentElement);
+    iconPicture.classList.toggle("selected-icon");
+}
+
+function enrollIconSelect(enrollTitleBar, iconContainer) {
+    enrollTitleBar.children[enrollTitleBar.children.length-1].classList.toggle("enroll-arrow");
+    iconContainer.classList.toggle("enroll");
+}
+
+function displayTextToPreview(nameInput) {
+    let title = document.querySelector("#title");
+    title.textContent = nameInput.value;
+}
+
+function runKeyBoardShortCut(event) {
+    if (event.keyCode == 27) {
+        closePrompt();
+    } else if (event.keyCode == 13) {
+        createNewEnum();
+    }
+}
+
 window.addEventListener("load", () => {
 	let addButton = document.querySelector("#enum-add");
 	let promptBackground = document.querySelector("#prompt-background");
     let promptCancel = document.querySelector('#cancel-button');
     let promptSubmit = document.querySelector('#submit-button');
     let nameInput = document.querySelector('#input-list-name');
-    let title = document.querySelector("#title");
     let iconTitle = document.querySelector("#input-icon-title");
     let iconContainer = document.querySelector("#input-list-icon");
     let iconContainerChildren = Array.from(iconContainer.children);
@@ -162,48 +192,19 @@ window.addEventListener("load", () => {
     iconSelectPreview.src = icon;
 
     iconContainerChildren.forEach((item) => {
-        item.addEventListener("click", function() {
-            let currentIcon = document.querySelector("#current-icon");
-            iconSelectPreview.src = this.children[0].src;
-            iconTitlePreview.src = this.children[0].src;
-            icon = this.children[0].src;
-            toggleOtherSelectedOff(this.parentElement);
-            console.log(this.clientHeight);
-            this.classList.toggle("selected-icon");
-        });
+        item.addEventListener("click", function() {selectIcon(this);});
     });
 
-    iconTitle.addEventListener("click", function() {
-        this.children[this.children.length-1].classList.toggle("enroll-arrow");
-        iconContainer.classList.toggle("enroll");
-    });
+    iconTitle.addEventListener("click", function() {enrollIconSelect(this, iconContainer);});
+    nameInput.addEventListener("input", function() {displayTextToPreview(this)});
 
-    nameInput.addEventListener("input", function() {
-        title.textContent = this.value;
-    });
-
-	addButton.addEventListener("click", () => {
-        openPrompt();
-    });
-
-	promptBackground.addEventListener("click", () => {
-	    closePrompt()
-    });
-
-    promptCancel.addEventListener("click", () => {
-        closePrompt();
-    });
-
-    promptSubmit.addEventListener("click", () => {
-        createNewEnum();
-    });
+	addButton.addEventListener("click", () => {openPrompt();});
+	promptBackground.addEventListener("click", () => {closePrompt()});
+    promptCancel.addEventListener("click", () => {closePrompt();});
+    promptSubmit.addEventListener("click", () => {createNewEnum();});
 
     document.addEventListener('keydown', function(event) {
-        if(event.keyCode == 27) {
-            closePrompt();
-        } else if(event.keyCode == 13) {
-            createNewEnum();
-        }
+        runKeyBoardShortCut(event);
     });
 });
 
