@@ -1,5 +1,3 @@
-import {prompt} from "/scripts/Prompt.js";
-
 class Enum {
     constructor(name, catigories, description, icon, banner) {
         this.name = name;
@@ -9,10 +7,6 @@ class Enum {
         this.iconPicture = icon;
         this.banner = banner;
         this.items = new Array();
-    }
-
-    loadListIntoUI() {
-        prompt.writeIntoEnumList(this);
     }
 }
 

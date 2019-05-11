@@ -10,5 +10,4 @@ class SettingBar {
     }
 }
 
-let settingBar = new SettingBar();
-export {settingBar};
+export {SettingBar};

@@ -1,5 +1,8 @@
-import {prompt} from "./Prompt.js";
-import {settingBar} from "./SettingBar.js"
+import {Prompt} from "./Prompt.js";
+import {SettingBar} from "./SettingBar.js";
+
+let prompt = new Prompt();
+let settingBar = new SettingBar();
 
 window.addEventListener("load", () => {
     let addButton = document.querySelector("#enum-add");

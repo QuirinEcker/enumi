@@ -132,7 +132,7 @@ class Prompt {
 
         if (this.noError(description, name)) {
             let newEnum = new Enum(name, "", description, icon, "");
-            newEnum.loadListIntoUI();
+            this.writeIntoEnumList(newEnum)
         } else
             this.outPutNoNameError(this.getErrorMessages(name, description));
     }
@@ -178,5 +178,5 @@ class Prompt {
     }
 }
 
-let prompt = new Prompt();
-export {prompt};
+
+export {Prompt};
