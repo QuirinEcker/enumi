@@ -1,4 +1,4 @@
-import {writeIntoEnumList} from "/scripts/Prompt.js";
+import {prompt} from "/scripts/Prompt.js";
 
 class Enum {
     constructor(name, catigories, description, icon, banner) {
@@ -6,12 +6,13 @@ class Enum {
         this.description = description;
         this.catigories = catigories;
         this.creationDate = Date.now();
-        this.icon = icon;
+        this.iconPicture = icon;
         this.banner = banner;
+        this.items = new Array();
     }
 
     loadListIntoUI() {
-        writeIntoEnumList(this)
+        prompt.writeIntoEnumList(this);
     }
 }
 

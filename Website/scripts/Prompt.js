@@ -1,211 +1,182 @@
 import {Enum} from "/scripts/Classes/Enum.js"
 
 let icon = "/img/logo.svg";
-const MAXNAMELENGHT = 15;
+const maxNameLenght = 15;
 
-function writeIntoEnumList(enumListObject) {
-    let addButton = document.querySelector("#enum-add");
-    let enumList = document.querySelector("#enum-list");
+class Prompt {
+    writeIntoEnumList(enumListObject) {
+        let addButton = document.querySelector("#enum-add");
+        let enumList = document.querySelector("#enum-list");
 
-    let textElement = document.createElement("span");
-    textElement.textContent = enumListObject.name;
+        let textElement = document.createElement("span");
+        textElement.textContent = enumListObject.name;
 
-    let iconElement = document.createElement("img");
-    iconElement.classList.add("icon");
-    iconElement.src = enumListObject.icon;
+        let iconElement = document.createElement("img");
+        iconElement.classList.add("icon");
+        iconElement.src = enumListObject.iconPicture;
 
-    let contentElement = document.createElement("div");
-    contentElement.classList.add("content");
+        let contentElement = document.createElement("div");
+        contentElement.classList.add("content");
 
-    let enumElement = document.createElement("div");
-    enumElement.classList.add("enum");
+        let enumElement = document.createElement("div");
+        enumElement.classList.add("enum");
 
-    enumElement.appendChild(contentElement);
-    contentElement.appendChild(textElement);
-    contentElement.insertBefore(iconElement, textElement);
+        enumElement.appendChild(contentElement);
+        contentElement.appendChild(textElement);
+        contentElement.insertBefore(iconElement, textElement);
 
-    enumList.insertBefore(enumElement, addButton);
-    closePrompt();
-}
-
-function removeErrorMessage(inputField, informationContainer) {
-    let errorContainer = document.querySelector("#errors-name");
-    let errorContainerChildren = Array.from(errorContainer.children);
-
-    if (inputField.classList.contains("error-animation"))
-        inputField.classList.toggle("error-animation");
-
-    errorContainerChildren.forEach((item) => {
-        errorContainer.removeChild(item);
-    });
-    console.log("... deleted Error Messages")
-}
-
-function resetInputs() {
-    let inputFild = document.querySelector("#prompt-content input");
-    let textarea = document.querySelector("#prompt-content textarea");
-    let informationContainer = document.querySelector("#information-container");
-
-    console.log(inputFild);
-    console.log(textarea);
-
-    inputFild.value = "";
-    textarea.value = "";
-    removeErrorMessage(inputFild, informationContainer);
-}
-
-function closePrompt() {
-    resetInputs();
-    let promptBackground = document.querySelector('#prompt-background');
-    let prompt = document.querySelector('#prompt');
-    let promptContainer = document.querySelector('#prompt-container');
-
-    prompt.style.transform = "scale(0,0)";
-    promptBackground.style.opacity = "0";
-    setTimeout(() => {
-        promptContainer.style.display = "none";
-    }, 100);
-}
-
-function openPrompt() {
-    let promptBackground = document.querySelector('#prompt-background');
-    let prompt = document.querySelector('#prompt');
-    let promptContainer = document.querySelector('#prompt-container');
-
-    promptContainer.style.display = "flex";
-    setTimeout(() => {
-        promptBackground.style.opacity = "0.8";
-        prompt.style.transform = "scale(1,1)";
-    }, 100);
-}
-
-function noError(description, name) {
-    let errorNum = 0;
-
-    if (name === "")
-        errorNum++;
-    if (name.length > MAXNAMELENGHT) {
-        errorNum++
+        enumList.insertBefore(enumElement, addButton);
+        this.closePrompt();
     }
 
-    if (errorNum > 0)
-        return false;
-    else
-        return true;
-}
+    removeErrorMessage(inputField, informationContainer) {
+        let errorContainer = document.querySelector("#errors-name");
+        let errorContainerChildren = Array.from(errorContainer.children);
 
-function outPutNoNameError(errorMessages) {
-    let errorBox = document.querySelector("#errors-name");
-    let nameBox = document.querySelector('#input-list-name');
+        if (inputField.classList.contains("error-animation"))
+            inputField.classList.toggle("error-animation");
 
-    console.log(nameBox.classList);
-    setTimeout(() => {
-        nameBox.classList.toggle("error-animation");
+        errorContainerChildren.forEach((item) => {
+            errorContainer.removeChild(item);
+        });
+        console.log("... deleted Error Messages")
+    }
+
+    resetInputs() {
+        let inputFild = document.querySelector("#prompt-content input");
+        let textarea = document.querySelector("#prompt-content textarea");
+        let informationContainer = document.querySelector("#information-container");
+
+        console.log(inputFild);
+        console.log(textarea);
+
+        inputFild.value = "";
+        textarea.value = "";
+        this.removeErrorMessage(inputFild, informationContainer);
+    }
+
+    closePrompt() {
+        this.resetInputs();
+        let promptBackground = document.querySelector('#prompt-background');
+        let prompt = document.querySelector('#prompt');
+        let promptContainer = document.querySelector('#prompt-container');
+
+        prompt.style.transform = "scale(0,0)";
+        promptBackground.style.opacity = "0";
+        setTimeout(() => {
+            promptContainer.style.display = "none";
+        }, 100);
+    }
+
+    openPrompt() {
+        let promptBackground = document.querySelector('#prompt-background');
+        let prompt = document.querySelector('#prompt');
+        let promptContainer = document.querySelector('#prompt-container');
+
+        promptContainer.style.display = "flex";
+        setTimeout(() => {
+            promptBackground.style.opacity = "0.8";
+            prompt.style.transform = "scale(1,1)";
+        }, 100);
+    }
+
+    noError(description, name) {
+        let errorNum = 0;
+
+        if (name === "")
+            errorNum++;
+        if (name.length > maxNameLenght) {
+            errorNum++
+        }
+
+        if (errorNum > 0)
+            return false;
+        else
+            return true;
+    }
+
+    outPutNoNameError(errorMessages) {
+        let errorBox = document.querySelector("#errors-name");
+        let nameBox = document.querySelector('#input-list-name');
+
         console.log(nameBox.classList);
-    }, 100);
+        setTimeout(() => {
+            nameBox.classList.toggle("error-animation");
+            console.log(nameBox.classList);
+        }, 100);
 
-    errorMessages.forEach((item) => {
-        let newError = document.createElement("span");
-        newError.textContent = item;
-        errorBox.appendChild(newError);
-    })
-}
+        errorMessages.forEach((item) => {
+            let newError = document.createElement("span");
+            newError.textContent = item;
+            errorBox.appendChild(newError);
+        })
+    }
 
-function getErrorMessages(name, description) {
-    let errors = new Array();
+    getErrorMessages(name, description) {
+        let errors = new Array();
 
-    if (name === "")
-        errors.push("Please enter a name");
-    if (name.length > MAXNAMELENGHT)
-        errors.push("Name is to long");
+        if (name === "")
+            errors.push("Please enter a name");
+        if (name.length > maxNameLenght)
+            errors.push("Name is to long");
 
-    return errors;
-}
+        return errors;
+    }
 
-function createNewEnum() {
-    let descriptionBox = document.querySelector('#input-list-description')
-    let description = descriptionBox.value;
-    let nameBox = document.querySelector('#input-list-name');
-    let name = nameBox.value;
-    resetInputs();
+    createNewEnum() {
+        let descriptionBox = document.querySelector('#input-list-description')
+        let description = descriptionBox.value;
+        let nameBox = document.querySelector('#input-list-name');
+        let name = nameBox.value;
+        this.resetInputs();
 
-    if (noError(description, name)) {
-        let newEnum = new Enum(name, "", description, icon, "");
-        newEnum.loadListIntoUI();
-    } else
-        outPutNoNameError(getErrorMessages(name, description));
-}
+        if (this.noError(description, name)) {
+            let newEnum = new Enum(name, "", description, icon, "");
+            newEnum.loadListIntoUI();
+        } else
+            this.outPutNoNameError(this.getErrorMessages(name, description));
+    }
 
-function toggleOtherSelectedOff(parent) {
-    let children = Array.from(parent.children);
+    toggleOtherSelectedOff(parent) {
+        let children = Array.from(parent.children);
 
-    children.forEach(function (item) {
-        if (item.classList.contains("selected-icon"))
-            item.classList.toggle("selected-icon");
-    });
-}
+        children.forEach(function (item) {
+            if (item.classList.contains("selected-icon"))
+                item.classList.toggle("selected-icon");
+        });
+    }
 
-function selectIcon(iconPicture) {
-    let iconTitlePreview = document.querySelector("#title-bar-current-icon");
-    let iconSelectPreview = document.querySelector("#current-icon");
-    let currentIcon = document.querySelector("#current-icon");
+    selectIcon(iconPicture) {
+        let iconTitlePreview = document.querySelector("#title-bar-current-icon");
+        let iconSelectPreview = document.querySelector("#current-icon");
+        let currentIcon = document.querySelector("#current-icon");
 
-    iconSelectPreview.src = iconPicture.children[0].src;
-    iconTitlePreview.src = iconPicture.children[0].src;
-    icon = iconPicture.children[0].src;
+        iconSelectPreview.src = iconPicture.children[0].src;
+        iconTitlePreview.src = iconPicture.children[0].src;
+        icon = iconPicture.children[0].src;
 
-    toggleOtherSelectedOff(iconPicture.parentElement);
-    iconPicture.classList.toggle("selected-icon");
-}
+        this.toggleOtherSelectedOff(iconPicture.parentElement);
+        iconPicture.classList.toggle("selected-icon");
+    }
 
-function enrollIconSelect(enrollTitleBar, iconContainer) {
-    enrollTitleBar.children[enrollTitleBar.children.length-1].classList.toggle("enroll-arrow");
-    iconContainer.classList.toggle("enroll");
-}
+    enrollIconSelect(enrollTitleBar, iconContainer) {
+        enrollTitleBar.children[enrollTitleBar.children.length-1].classList.toggle("enroll-arrow");
+        iconContainer.classList.toggle("enroll");
+    }
 
-function displayTextToPreview(nameInput) {
-    let title = document.querySelector("#title");
-    title.textContent = nameInput.value;
-}
+    displayTextToPreview(nameInput) {
+        let title = document.querySelector("#title");
+        title.textContent = nameInput.value;
+    }
 
-function runKeyBoardShortCut(event) {
-    if (event.keyCode == 27) {
-        closePrompt();
-    } else if (event.keyCode == 13) {
-        createNewEnum();
+    runKeyBoardShortCut(event) {
+        if (event.keyCode == 27) {
+            this.closePrompt();
+        } else if (event.keyCode == 13) {
+            this.createNewEnum();
+        }
     }
 }
 
-window.addEventListener("load", () => {
-	let addButton = document.querySelector("#enum-add");
-	let promptBackground = document.querySelector("#prompt-background");
-    let promptCancel = document.querySelector('#cancel-button');
-    let promptSubmit = document.querySelector('#submit-button');
-    let nameInput = document.querySelector('#input-list-name');
-    let iconTitle = document.querySelector("#input-icon-title");
-    let iconContainer = document.querySelector("#input-list-icon");
-    let iconContainerChildren = Array.from(iconContainer.children);
-    let iconTitlePreview = document.querySelector("#title-bar-current-icon");
-    let iconSelectPreview = document.querySelector("#current-icon");
-
-    iconTitlePreview.src = icon;
-    iconSelectPreview.src = icon;
-
-    iconContainerChildren.forEach((item) => {
-        item.addEventListener("click", function() {selectIcon(this);});
-    });
-
-    iconTitle.addEventListener("click", function() {enrollIconSelect(this, iconContainer);});
-    nameInput.addEventListener("input", function() {displayTextToPreview(this)});
-
-	addButton.addEventListener("click", () => {openPrompt();});
-	promptBackground.addEventListener("click", () => {closePrompt()});
-    promptCancel.addEventListener("click", () => {closePrompt();});
-    promptSubmit.addEventListener("click", () => {createNewEnum();});
-
-    document.addEventListener('keydown', function(event) {
-        runKeyBoardShortCut(event);
-    });
-});
-
-export {writeIntoEnumList}
+let prompt = new Prompt();
+export {prompt};
