@@ -1,8 +1,12 @@
 import {Prompt} from "./Prompt.js";
 import {SettingBar} from "./SettingBar.js";
+import {List} from "./List.js";
+import {Konto} from "./Classes/Konto.js";
 
 let prompt = new Prompt();
 let settingBar = new SettingBar();
+let list = new List();
+let currentKonto = new Konto("Max", "Mustermann", "m.mustermann@gmail.com");
 
 window.addEventListener("load", () => {
     let addButton = document.querySelector("#enum-add");
@@ -29,7 +33,7 @@ window.addEventListener("load", () => {
     addButton.addEventListener("click", () => {prompt.openPrompt();});
     promptBackground.addEventListener("click", () => {prompt.closePrompt()});
     promptCancel.addEventListener("click", () => {prompt.closePrompt();});
-    promptSubmit.addEventListener("click", () => {prompt.createNewEnum();});
+    promptSubmit.addEventListener("click", () => {prompt.createNewEnum(currentKonto);});
 
     document.addEventListener('keydown', function(event) {prompt.runKeyBoardShortCut(event);});
 
@@ -39,4 +43,7 @@ window.addEventListener("load", () => {
         setting.addEventListener("mouseover", function() {settingBar.showSetting(setting);});
         setting.addEventListener("mouseout", function() {settingBar.hideSetting(setting)});
     });
+
+    prompt.factoryEnum(currentKonto, "musterlist", "", "", "", "");
+    list.createItem(currentKonto.enums[0], "", "", "")
 });

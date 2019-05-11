@@ -123,7 +123,7 @@ class Prompt {
         return errors;
     }
 
-    createNewEnum() {
+    createNewEnum(konto) {
         let descriptionBox = document.querySelector('#input-list-description')
         let description = descriptionBox.value;
         let nameBox = document.querySelector('#input-list-name');
@@ -133,8 +133,15 @@ class Prompt {
         if (this.noError(description, name)) {
             let newEnum = new Enum(name, "", description, icon, "");
             this.writeIntoEnumList(newEnum)
+            konto.enums.push(newEnum);
         } else
             this.outPutNoNameError(this.getErrorMessages(name, description));
+    }
+
+    factoryEnum(konto, name, catigory, description, icon, banner) {
+        let newEnum = new Enum(name, "", description, icon, "");
+        this.writeIntoEnumList(newEnum)
+        konto.enums.push(newEnum);
     }
 
     toggleOtherSelectedOff(parent) {
