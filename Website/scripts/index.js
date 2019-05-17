@@ -46,4 +46,10 @@ window.addEventListener("load", () => {
 
     prompt.factoryEnum(currentKonto, "musterlist", "", "", "", "");
     list.createItem(currentKonto.enums[0], "", "", "")
+
+    let itemBoxes = Array.from(document.querySelector("#current-content-box").children);
+
+    itemBoxes.forEach((item) => {
+       item.style.height = `${item.clientWidth}px`
+    });
 });
