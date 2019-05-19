@@ -1,12 +1,16 @@
 import {Prompt} from "./Prompt.js";
 import {SettingBar} from "./SettingBar.js";
 import {List} from "./List.js";
+import {ItemCreatePrompt} from "./ItemCreatePrompt.js"
 import {Konto} from "./Classes/Konto.js";
 
 let prompt = new Prompt();
 let settingBar = new SettingBar();
 let list = new List();
+let itemCreatePrompt = new ItemCreatePrompt();
 let currentKonto = new Konto("Max", "Mustermann", "m.mustermann@gmail.com");
+
+prompt.factoryEnum(currentKonto, "musterlist", "", "", "", "");
 
 window.addEventListener("load", () => {
     let addButton = document.querySelector("#enum-add");
@@ -19,6 +23,8 @@ window.addEventListener("load", () => {
     let iconContainerChildren = Array.from(iconContainer.children);
     let iconTitlePreview = document.querySelector("#title-bar-current-icon");
     let iconSelectPreview = document.querySelector("#current-icon");
+
+    let addItemButton = document.querySelector('#addItem-button');
 
     iconTitlePreview.src = prompt.icon;
     iconSelectPreview.src = prompt.icon;
@@ -44,12 +50,13 @@ window.addEventListener("load", () => {
         setting.addEventListener("mouseout", function() {settingBar.hideSetting(setting)});
     });
 
-    prompt.factoryEnum(currentKonto, "musterlist", "", "", "", "");
-    list.createItem(currentKonto.enums[0], "", "", "")
-
-    let itemBoxes = Array.from(document.querySelector("#current-content-box").children);
-
-    itemBoxes.forEach((item) => {
-       item.style.height = `${item.clientWidth}px`
+    addItemButton.addEventListener("click", () => {
+        let name = itemCreatePrompt.openPrompt();
+        list.createItem(currentKonto.enums[0], name, "", "")
     });
+
+    list.adjustItemSize();
+    window.onresize = () => {
+        list.adjustItemSize();
+    }
 });
