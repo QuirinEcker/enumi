@@ -9,8 +9,27 @@ let settingBar = new SettingBar();
 let list = new List();
 let itemCreatePrompt = new ItemCreatePrompt();
 let currentKonto = new Konto("Max", "Mustermann", "m.mustermann@gmail.com");
+let currentEnum;
 
 prompt.factoryEnum(currentKonto, "musterlist", "", "", "", "");
+
+function listMatcher() {
+    let enums = currentKonto.enums;
+
+    enums.forEach((enumList) => {
+        console.log(enumList.name);
+        console.log(this.textContent);
+
+        if (enumList.name == this.textContent) {
+           list.refreshItems(enumList);
+           currentEnum = enumList;
+           this.style.background = "#004E27";
+        } else {
+            this.style.background = "#007943";
+        }
+
+    });
+}
 
 window.addEventListener("load", () => {
     let addButton = document.querySelector("#enum-add");
@@ -25,6 +44,8 @@ window.addEventListener("load", () => {
     let iconSelectPreview = document.querySelector("#current-icon");
 
     let addItemButton = document.querySelector('#addItem-button');
+    let currentSearchBar = document.querySelector('#search-currrent');
+    let recommendedSearchBar = document.querySelector('#search-recommended');
 
     iconTitlePreview.src = prompt.icon;
     iconSelectPreview.src = prompt.icon;
@@ -52,11 +73,23 @@ window.addEventListener("load", () => {
 
     addItemButton.addEventListener("click", () => {
         let name = itemCreatePrompt.openPrompt();
-        list.createItem(currentKonto.enums[0], name, "", "")
+        list.createItem(currentEnum, name, "/img/listIcons/settings.svg", "/img/listIcons/settings.svg")
     });
 
     list.adjustItemSize();
     window.onresize = () => {
         list.adjustItemSize();
     }
+
+    currentSearchBar.addEventListener('input', function () {
+        let currentListBox = Array.from(document.querySelector("#current-content-box").children);
+        list.displayItemsBySearch(this.value, currentListBox);
+    })
+
+    recommendedSearchBar.addEventListener('input', function () {
+        let recomendedListBox = Array.from(document.querySelector("#recomended-content-box").children);
+        list.displayItemsBySearch(this.value, recomendedListBox);
+    })
 });
+
+export {listMatcher};

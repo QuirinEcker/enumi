@@ -1,4 +1,5 @@
 import {Enum} from "/scripts/Classes/Enum.js"
+import {listMatcher} from "./index.js";
 
 let icon = "/img/logo.svg";
 const maxNameLenght = 15;
@@ -20,6 +21,7 @@ class Prompt {
 
         let enumElement = document.createElement("div");
         enumElement.classList.add("enum");
+        enumElement.addEventListener('click', listMatcher);
 
         enumElement.appendChild(contentElement);
         contentElement.appendChild(textElement);

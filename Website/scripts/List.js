@@ -6,6 +6,10 @@ class List {
         let currentList = document.querySelector("#current-content-box")
         let items = enumList.items;
 
+        while (currentList.children.length > 0) {
+            currentList.removeChild(currentList.lastChild);
+        }
+
         items.forEach((item) => {
            let newBox = document.createElement("div")
            newBox.classList.add("item");
@@ -23,6 +27,17 @@ class List {
         let item = new Item(name, catigory, icon);
         enumList.items.push(item);
         this.refreshItems(enumList);
+    }
+
+    displayItemsBySearch(search, list) {
+        list.forEach((item) => {
+            let itemName = item.children[1].textContent;
+            if (itemName.includes(search)) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        });
     }
 
     adjustItemSize() {
