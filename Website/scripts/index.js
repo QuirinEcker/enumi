@@ -11,8 +11,6 @@ let itemCreatePrompt = new ItemCreatePrompt();
 let currentKonto = new Konto("Max", "Mustermann", "m.mustermann@gmail.com");
 let currentEnum;
 
-prompt.factoryEnum(currentKonto, "musterlist", "", "", "", "");
-
 function listMatcher() {
     let enums = currentKonto.enums;
 

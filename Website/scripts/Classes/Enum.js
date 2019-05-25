@@ -7,6 +7,7 @@ class Enum {
         this.iconPicture = icon;
         this.banner = banner;
         this.items = new Array();
+        this.recommendedItems = new Array();
     }
 }
 
