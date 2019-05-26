@@ -77,10 +77,6 @@ class List {
         allItems.forEach((item) => {
            item.style.height = `${item.clientWidth}px`
         });
-
-        allItems.forEach((item) => {
-           item.style.height = `${item.clientWidth}px`
-        });
     }
 
     moveCurrent(item, enumList) {
@@ -113,6 +109,14 @@ class List {
         searchbars.forEach((item) => {
             item.lastElementChild.value = "";
         })
+    }
+
+    adjustListIconSize() {
+        let allItems = document.querySelectorAll(".enum .content .icon");
+
+        allItems.forEach((item) => {
+            item.style.height = `${item.clientWidth}px`
+        });
     }
 }
 

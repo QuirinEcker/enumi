@@ -78,9 +78,10 @@ window.addEventListener("load", () => {
     });
 
     list.adjustItemSize();
+    list.adjustListIconSize();
     window.onresize = () => {
         list.adjustItemSize();
-    }
+    };
 
     currentSearchBar.addEventListener('input', function () {
         let currentListBox = Array.from(document.querySelector("#current-content-box").children);
