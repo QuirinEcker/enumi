@@ -12,9 +12,8 @@ class List {
             currentList.removeChild(currentList.lastChild);
         }
 
-        console.log(recoomendedList.lastChild.previousSibling)
         while (recoomendedList.children.length > 1) {
-            if (!recoomendedList.lastChild.previousSibling.classList.contains("plus-item"))
+            if (!recoomendedList.lastElementChild.classList.contains("plus-item"))
                 recoomendedList.removeChild(recoomendedList.lastChild);
         }
 
