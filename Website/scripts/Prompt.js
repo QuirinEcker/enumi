@@ -2,6 +2,7 @@ import {Enum} from "/scripts/Classes/Enum.js"
 import {listMatcher} from "./index.js";
 
 let icon = "/img/logo.svg";
+let standartIcon = "/img/logo.svg";
 const maxNameLenght = 15;
 
 class Prompt {
@@ -72,6 +73,7 @@ class Prompt {
     }
 
     openPrompt() {
+        this.setuptPrompt();
         let promptBackground = document.querySelector('#prompt-background');
         let prompt = document.querySelector('#prompt');
         let promptContainer = document.querySelector('#prompt-container');
@@ -185,6 +187,14 @@ class Prompt {
         } else if (event.keyCode == 13) {
             this.createNewEnum(konto);
         }
+    }
+
+    setuptPrompt() {
+        icon = standartIcon;
+        let previewIcon = document.querySelector("#title-bar-current-icon");
+        let previewIconTitleBar = document.querySelector("#current-icon");
+        previewIcon.src = icon;
+        previewIconTitleBar.src = icon;
     }
 }
 
