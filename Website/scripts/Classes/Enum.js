@@ -1,5 +1,8 @@
+let numberOfEnums = 0;
+
 class Enum {
     constructor(name, catigories, description, icon, banner) {
+        this.id = "en" + numberOfEnums;
         this.name = name;
         this.description = description;
         this.catigories = catigories;
@@ -8,6 +11,7 @@ class Enum {
         this.banner = banner;
         this.items = new Array();
         this.recommendedItems = new Array();
+        numberOfEnums++;
     }
 }
 

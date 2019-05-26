@@ -22,6 +22,7 @@ class Prompt {
 
         let enumElement = document.createElement("div");
         enumElement.classList.add("enum");
+        enumElement.id = enumListObject.id;
         enumElement.addEventListener('click', listMatcher);
 
         enumElement.appendChild(contentElement);

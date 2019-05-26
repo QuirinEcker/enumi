@@ -23,7 +23,7 @@ function listMatcher() {
             }
         });
 
-        if (enumList.name == this.textContent) {
+        if (enumList.id == this.id) {
             list.refreshItems(enumList);
             list.clearSearchBars();
             currentEnum = enumList;
