@@ -73,7 +73,7 @@ class Prompt {
     }
 
     openPrompt() {
-        this.setuptPrompt();
+        Prompt.setuptPrompt();
         let promptBackground = document.querySelector('#prompt-background');
         let prompt = document.querySelector('#prompt');
         let promptContainer = document.querySelector('#prompt-container');
@@ -189,7 +189,7 @@ class Prompt {
         }
     }
 
-    setuptPrompt() {
+    static setuptPrompt() {
         icon = standartIcon;
         let previewIcon = document.querySelector("#title-bar-current-icon");
         let previewIconTitleBar = document.querySelector("#current-icon");
