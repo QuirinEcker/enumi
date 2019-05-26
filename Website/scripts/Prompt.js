@@ -178,11 +178,11 @@ class Prompt {
         title.textContent = nameInput.value;
     }
 
-    runKeyBoardShortCut(event) {
+    runKeyBoardShortCut(event, konto) {
         if (event.keyCode == 27) {
             this.closePrompt();
         } else if (event.keyCode == 13) {
-            this.createNewEnum();
+            this.createNewEnum(konto);
         }
     }
 }
