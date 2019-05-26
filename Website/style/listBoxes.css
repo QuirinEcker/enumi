@@ -125,3 +125,31 @@
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 30px;
 }
+
+#recomended-content-box .plus-item {
+	width: 19%;
+	background-color: #ff0051;
+	margin: 0.5%;
+
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: column;
+
+	color: white;
+}
+
+#recomended-content-box .plus-item img {
+	width: 60%;
+	height: 60%;
+}
+
+#recomended-content-box .plus-item span {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 30px;
+}
+

@@ -15,17 +15,19 @@ function listMatcher() {
     let enums = currentKonto.enums;
 
     enums.forEach((enumList) => {
-        console.log(enumList.name);
-        console.log(this.textContent);
+        let children = Array.from(this.parentElement.children);
+
+        children.forEach((item) => {
+            if (item !== this) {
+                item.style.background = "#007943";
+            }
+        });
 
         if (enumList.name == this.textContent) {
-           list.refreshItems(enumList);
-           currentEnum = enumList;
-           this.style.background = "#004E27";
-        } else {
-            this.style.background = "#007943";
+            list.refreshItems(enumList);
+            currentEnum = enumList;
+            this.style.background = "#004E27";
         }
-
     });
 }
 
@@ -60,7 +62,7 @@ window.addEventListener("load", () => {
     promptCancel.addEventListener("click", () => {prompt.closePrompt();});
     promptSubmit.addEventListener("click", () => {prompt.createNewEnum(currentKonto);});
 
-    document.addEventListener('keydown', function(event) {prompt.runKeyBoardShortCut(event);});
+    document.addEventListener('keydown', function(event) {prompt.runKeyBoardShortCut(event, currentKonto);});
 
     let settings = Array.from(document.querySelectorAll(".settings-point"))
 
