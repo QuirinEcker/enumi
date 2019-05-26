@@ -75,7 +75,7 @@
 	height: 10%;
 	width: 100%;
 	
-	display: flex;
+	display: none;
 	flex-direction: row;
 	background-color: #007943;
 	box-shadow: -5px -5px 5px 5px #4B4141;
