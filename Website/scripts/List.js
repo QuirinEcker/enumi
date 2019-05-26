@@ -48,6 +48,8 @@ class List {
             newBox.appendChild(newTextBox);
             recoomendedList.appendChild(newBox);
         })
+
+        this.adjustItemSize();
     }
 
     createItem(enumList, name, catigory, icon) {
