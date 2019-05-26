@@ -55,6 +55,7 @@ class Prompt {
         inputFild.value = "";
         textarea.value = "";
         this.removeErrorMessage(inputFild, informationContainer);
+        this.displayTextToPreview(inputFild)
     }
 
     closePrompt() {
