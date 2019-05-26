@@ -13,6 +13,9 @@ class Prompt {
         let textElement = document.createElement("span");
         textElement.textContent = enumListObject.name;
 
+        let iconElementContainer = document.createElement("div");
+        iconElementContainer.classList.add("icon-container");
+
         let iconElement = document.createElement("img");
         iconElement.classList.add("icon");
         iconElement.src = enumListObject.iconPicture;
@@ -27,7 +30,8 @@ class Prompt {
 
         enumElement.appendChild(contentElement);
         contentElement.appendChild(textElement);
-        contentElement.insertBefore(iconElement, textElement);
+        contentElement.insertBefore(iconElementContainer, textElement);
+        iconElementContainer.appendChild(iconElement);
 
         enumList.insertBefore(enumElement, addButton);
         this.closePrompt();
@@ -142,6 +146,8 @@ class Prompt {
             konto.enums.push(newEnum);
         } else
             this.outPutNoNameError(this.getErrorMessages(name, description));
+
+        this.adjustListIconSize();
     }
 
     factoryEnum(konto, name, catigory, description, icon, banner) {
@@ -188,6 +194,14 @@ class Prompt {
         } else if (event.keyCode == 13) {
             this.createNewEnum(konto);
         }
+    }
+
+    adjustListIconSize() {
+        let allItems = document.querySelectorAll(".enum .content .icon-container");
+
+        allItems.forEach((item) => {
+            item.style.width = `${item.clientHeight}px`
+        });
     }
 
     static setuptPrompt() {

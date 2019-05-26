@@ -20,6 +20,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	-webkit-box-shadow: 5px 2.5px 5px 5px #4B4141;
+	-moz-box-shadow: 5px 5px 2.5px 5px #4B4141;
+	box-shadow: 5px 5px 5px 2.5px #4B4141;
 	
 	cursor: pointer;
 	background-color: #007943;
@@ -61,10 +65,26 @@
 	font-family: 'Source Sans Pro', sans-serif;
 }
 
+.enum .content .icon-container {
+	height: 90%;
+	margin-right: 4%;
+	/*-webkit-box-shadow: 5px 5px 10px 5px #4B4141;*/
+	/*-moz-box-shadow: 5px 5px 10px 5px #4B4141;*/
+	/*box-shadow: 5px 5px 5px 5px #4B4141;*/
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+}
+
 .enum .content .icon {
     width: available;
-    height: 80%;
-    margin-right: 8%;
+    height: 60%;
 }
 
 #enum-add span {

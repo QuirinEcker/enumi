@@ -78,9 +78,10 @@ window.addEventListener("load", () => {
     });
 
     list.adjustItemSize();
-    list.adjustListIconSize();
+    prompt.adjustListIconSize();
     window.onresize = () => {
         list.adjustItemSize();
+        prompt.adjustListIconSize()
     };
 
     currentSearchBar.addEventListener('input', function () {
