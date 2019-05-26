@@ -8,7 +8,6 @@ const mime_types = {
 class Config {
     static getMimeType(filename) {
         let extention = filename.split('.')[1];
-
         return mime_types['.' + extention];
     }
 }
