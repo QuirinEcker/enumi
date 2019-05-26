@@ -25,6 +25,7 @@ function listMatcher() {
 
         if (enumList.name == this.textContent) {
             list.refreshItems(enumList);
+            list.clearSearchBars();
             currentEnum = enumList;
             this.style.background = "#004E27";
         }

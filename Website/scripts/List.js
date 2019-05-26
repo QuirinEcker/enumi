@@ -106,6 +106,14 @@ class List {
         enumList.recommendedItems = focus
         this.refreshItems(currentEnum);
     }
+
+    clearSearchBars() {
+        let searchbars = Array.from(document.querySelectorAll(".search-box"));
+
+        searchbars.forEach((item) => {
+            item.lastElementChild.value = "";
+        })
+    }
 }
 
 export {List}
