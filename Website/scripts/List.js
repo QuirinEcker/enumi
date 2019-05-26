@@ -60,6 +60,7 @@ class List {
             let itemName = item.children[1].textContent;
             if (itemName.includes(search)) {
                 item.style.display = "block";
+                item.style.display = "flex";
             } else {
                 item.style.display = "none";
             }
