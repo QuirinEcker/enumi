@@ -60,8 +60,10 @@ class List {
 
     displayItemsBySearch(search, list) {
         list.forEach((item) => {
-            let itemName = item.children[1].textContent;
-            if (itemName.includes(search)) {
+            let itemName = item.children[1].textContent.toLowerCase();
+            let searchToLowerCase = search.toLowerCase();
+
+            if (itemName.includes(searchToLowerCase)) {
                 item.style.display = "flex";
             } else {
                 item.style.display = "none";
