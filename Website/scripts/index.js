@@ -8,7 +8,11 @@ let prompt = new Prompt();
 let settingBar = new SettingBar();
 let list = new List();
 let itemCreatePrompt = new ItemCreatePrompt();
-let currentKonto = new Konto("Max", "Mustermann", "m.mustermann@gmail.com");
+
+let name = localStorage.getItem("username");
+let password = localStorage.getItem("password");
+let email = localStorage.getItem("email");
+let currentKonto = new Konto(name, password, email);
 let currentEnum;
 
 function listMatcher() {
@@ -96,4 +100,4 @@ window.addEventListener("load", () => {
 });
 
 export {listMatcher};
-export {currentEnum}
+export {currentEnum};

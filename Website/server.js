@@ -4,7 +4,7 @@ const Config = require('./Config');
 
 const server = http.createServer(function (req, res) {
     if (req.url === '/') {
-        respondWithFile(res, req, './index.html', 'text/html');
+        respondWithFile(res, req, './html/logIn.html', 'text/html');
         console.log('Pulling files from Webserver: ')
     } else {
         respondWithFile(res, req, '.' + req.url, Config.getMimeType(req.url));
