@@ -1,0 +1,72 @@
+@keyframes backgroundAnimation {
+    from {
+        background-position-x: 0;
+    }
+
+    to {
+        background-position-x: 100vw;
+    }
+}
+
+body {
+    background-image: url("/img/wave.svg");
+    -webkit-background-size: cover;
+    background-size: 100%;
+    background-position-x: left;
+    background-repeat: repeat-x;
+    background-position-y: 20vh;
+    -webkit-transition: all 5s;
+    -moz-transition: all 5s;
+    -ms-transition: all 5s;
+    -o-transition: all 5s;
+    transition: all 5s;
+}
+
+body:hover {
+    -webkit-animation-name: backgroundAnimation;
+    -moz-animation-name: backgroundAnimation;
+    -o-animation-name: backgroundAnimation;
+    animation-name: backgroundAnimation;
+
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+
+    animation-timing-function: linear;
+    background-position-y: -80vh;
+}
+
+.enter-Animation {
+    -webkit-animation-name: backgroundAnimation;
+    -moz-animation-name: backgroundAnimation;
+    -o-animation-name: backgroundAnimation;
+    animation-name: backgroundAnimation;
+
+    -webkit-animation-duration: 2s;
+    -moz-animation-duration: 2s;
+    -o-animation-duration: 2s;
+    animation-duration: 2s;
+
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+
+    animation-timing-function: linear;
+}
