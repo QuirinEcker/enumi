@@ -20,6 +20,7 @@ class List {
         items.forEach((item) => {
             let newBox = document.createElement("div")
             newBox.classList.add("item");
+            newBox.id = "it" + item.id;
             newBox.addEventListener("click", () => {
                 this.moveRecommended(item, enumList)
             });
