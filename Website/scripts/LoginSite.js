@@ -3,7 +3,8 @@ import {Konto} from "./Classes/Konto.js";
 window.addEventListener('load', () => {
     let button = document.querySelector("#login-button-container button");
     let kontos = [
-        new Konto("MaxMustermann", "pass", "allesklar")
+        new Konto("MaxMustermann", "muster", "m.mustermann@gmail.com"),
+        new Konto("Felix", "iLikeMinecraft", "f.woess@gmail.com")
     ];
 
     button.addEventListener('click', function() {
