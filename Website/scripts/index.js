@@ -3,11 +3,13 @@ import {SettingBar} from "./SettingBar.js";
 import {List} from "./List.js";
 import {ItemCreatePrompt} from "./ItemCreatePrompt.js"
 import {Konto} from "./Classes/Konto.js";
+import {AddItemPrompt} from "./AddItemPrompt.js";
 
 let prompt = new Prompt();
 let settingBar = new SettingBar();
 let list = new List();
 let itemCreatePrompt = new ItemCreatePrompt();
+let addItemPrompt = new AddItemPrompt();
 
 let name = localStorage.getItem("username");
 let password = localStorage.getItem("password");
@@ -77,8 +79,9 @@ window.addEventListener("load", () => {
     });
 
     addItemButton.addEventListener("click", () => {
-        let name = itemCreatePrompt.openPrompt();
-        list.createItem(currentEnum, name, "/img/listIcons/settings.svg", "/img/listIcons/settings.svg")
+        // let name = itemCreatePrompt.openPrompt();
+        // list.createItem(currentEnum, name, "/img/listIcons/settings.svg", "/img/listIcons/settings.svg")
+        addItemPrompt.openPrompt()
     });
 
     list.adjustItemSize();

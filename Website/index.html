@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="/style/fullsize/prompt.css">
 		<link rel="stylesheet" href="/style/middlesized/listBoxes.css">
 		<link rel="stylesheet" href="/style/middlesized/listSideBar.css">
+		<link rel="stylesheet" href="/style/fullsize/addItemPrompt.css">
 		<script src="/scripts/index.js" type="module"></script>
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 		<!--font-family: 'Source Sans Pro', sans-serif;-->
@@ -17,6 +18,31 @@
 
 	<body>
 		<main>
+			<div id="addItem-prompt-container">
+				<div id="addItem-prompt-background"></div>
+				<div id="addItem-prompt">
+					<div id="addItem-prompt-titleBar">
+						<span id="addItem-prompt-title">asd</span>
+					</div>
+
+					<div id="addItem-prompt-content">
+						<div id="addItem-prompt-information">
+							<div id="addItem-prompt-information-container">
+								<input type="text" id="addItem-prompt-input-name" placeholder="Name">
+								<input id="addItem-prompt-input-catigory" placeholder="Catigory">
+							</div>
+						</div>
+					</div>
+
+					<div id="addItem-prompt-submit-box">
+						<div id="addItem-prompt-button-container">
+							<div id="addItem-prompt-cancel-button"> Cancel </div>
+							<div id="addItem-prompt-submit-button"> Create </div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<div id="prompt-container">
 				<div id="prompt-background"></div>
 				<div id="prompt">
@@ -38,7 +64,7 @@
 									<div id="input-icon-title">
 										<div id="left">
 											<img id="current-icon" src="" alt="">
-											<span> Listen Bild</span>
+											<span> Listen Bild </span>
 										</div>
 										<img src="/img/dropdown-arrow.svg" alt="" id="drop-down-arrow">
 									</div>
