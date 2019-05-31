@@ -205,7 +205,7 @@ class Prompt {
         let allItems = document.querySelectorAll(".enum .content .icon-container");
 
         allItems.forEach((item) => {
-            item.style.width = `${item.clientHeight}px`
+            item.style.height = `${item.clientWidth}px`
         });
     }
 
