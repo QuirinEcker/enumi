@@ -4,6 +4,7 @@ import {List} from "./List.js";
 import {ItemCreatePrompt} from "./ItemCreatePrompt.js"
 import {Konto} from "./Classes/Konto.js";
 import {AddItemPrompt} from "./AddItemPrompt.js";
+import {Enum} from "./Classes/Enum.js";
 
 let prompt = new Prompt();
 let settingBar = new SettingBar();
@@ -15,7 +16,11 @@ let name = localStorage.getItem("username");
 let password = localStorage.getItem("password");
 let email = localStorage.getItem("email");
 let currentKonto = new Konto(name, password, email);
+
+//currentKonto.enums.push(prompt.factoryEnum(currentKonto, "musterEnum", "", "", ""));
 let currentEnum;
+
+console.log("Welcome " + currentKonto.username);
 
 function listMatcher() {
     let enums = currentKonto.enums;
@@ -73,7 +78,19 @@ window.addEventListener("load", () => {
     promptCancel.addEventListener("click", () => {prompt.closePrompt();});
     promptSubmit.addEventListener("click", () => {prompt.createNewEnum(currentKonto);});
 
-    document.addEventListener('keydown', function(event) {prompt.runKeyBoardShortCut(event, currentKonto);});
+    document.addEventListener('keydown', function(event) {
+        if (event.keyCode == 27) {
+            prompt.closePrompt();
+            addItemPrompt.closePrompt()
+        } else if (event.keyCode == 13) {
+            if (prompt.isOpened())
+                prompt.createNewEnum(currentKonto);
+            if (addItemPrompt.isOpened()) {
+                list.createItem(currentEnum, addItemPrompt.getData().name, addItemPrompt.getData().catigory, addItemPrompt.getData().icon);
+                addItemPrompt.closePrompt()
+            }
+        }
+    });
 
     let settings = Array.from(document.querySelectorAll(".settings-point"))
 

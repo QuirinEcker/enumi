@@ -1,3 +1,5 @@
+let status = false;
+
 class AddItemPrompt {
     openPrompt() {
         let promptBackground = document.querySelector("#addItem-prompt-background");
@@ -12,6 +14,7 @@ class AddItemPrompt {
             prompt.style.transform = "scale(1,1)";
         }, 100)
 
+        status = true;
     }
 
     closePrompt() {
@@ -24,6 +27,8 @@ class AddItemPrompt {
         setTimeout(() => {
             promptContainer.style.display = "none";
         }, 100)
+
+        status = false;
     }
 
     resetInputs() {
@@ -44,6 +49,10 @@ class AddItemPrompt {
             catigoryArea: catigoryArea.value,
             icon: icon
         }
+    }
+
+    isOpened() {
+        return status;
     }
 }
 

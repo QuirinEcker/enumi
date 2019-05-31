@@ -4,6 +4,7 @@ import {listMatcher} from "./index.js";
 let icon = "/img/logo.svg";
 let standartIcon = "/img/logo.svg";
 const maxNameLenght = 15;
+let status = false;
 
 class Prompt {
     writeIntoEnumList(enumListObject) {
@@ -75,6 +76,8 @@ class Prompt {
         setTimeout(() => {
             promptContainer.style.display = "none";
         }, 100);
+
+        status = false;
     }
 
     openPrompt() {
@@ -88,6 +91,8 @@ class Prompt {
             promptBackground.style.opacity = "0.8";
             prompt.style.transform = "scale(1,1)";
         }, 100);
+
+        status = true;
     }
 
     noError(description, name) {
@@ -202,6 +207,10 @@ class Prompt {
         allItems.forEach((item) => {
             item.style.width = `${item.clientHeight}px`
         });
+    }
+
+    isOpened() {
+        return status;
     }
 
     static setuptPrompt() {
