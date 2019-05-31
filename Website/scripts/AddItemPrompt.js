@@ -54,6 +54,13 @@ class AddItemPrompt {
         }
     }
 
+    refreshMenuBarTitle() {
+        let nameArea = document.querySelector("#addItem-prompt-input-name");
+        let menubarTitle = document.querySelector("#addItem-prompt-title");
+        menubarTitle.textContent = nameArea.value;
+
+    }
+
     isOpened() {
         return status;
     }

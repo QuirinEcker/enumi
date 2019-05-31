@@ -62,6 +62,7 @@ window.addEventListener("load", () => {
     let addItemPromptCancel = document.querySelector("#addItem-prompt-cancel-button");
     let addItemPromptSubmit = document.querySelector("#addItem-prompt-submit-button");
     let addItemPromptBackground = document.querySelector("#addItem-prompt-background");
+    let addItemPromptInputName = document.querySelector("#addItem-prompt-input-name");
 
     iconTitlePreview.src = prompt.icon;
     iconSelectPreview.src = prompt.icon;
@@ -131,6 +132,11 @@ window.addEventListener("load", () => {
        list.createItem(currentEnum, addItemPrompt.getData().name, addItemPrompt.getData().catigory, addItemPrompt.getData().icon);
        addItemPrompt.closePrompt();
     });
+
+    addItemPromptInputName.addEventListener("input", () => {
+       addItemPrompt.refreshMenuBarTitle();
+    });
+
 });
 
 export {listMatcher};
