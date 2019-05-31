@@ -26,7 +26,16 @@ class List {
             });
 
             let newTextBox = document.createElement("span");
-            newTextBox.textContent = item.name;
+            let compressedName = item.name;
+            if (item.name.length > 10) {
+                compressedName = "";
+                for (let i = 0; i < 7; i++)
+                    compressedName += item.name.charAt(i);
+                compressedName += "...";
+            }
+            console.log(compressedName);
+            newTextBox.textContent = compressedName;
+
             let iconBox = document.createElement("span");
             iconBox.textContent = item.icon;
             iconBox.classList.add("first-letter")
@@ -43,6 +52,16 @@ class List {
             });
 
             let newTextBox = document.createElement("span");
+            let compressedName = item.name;
+            if (item.name.length > 10) {
+                compressedName = ""
+                for (let i = 0; i < 7; i++)
+                    compressedName += item.name.charAt(i);
+                compressedName += "...";
+            }
+            console.log(compressedName);
+            newTextBox.textContent = compressedName;
+
             newTextBox.textContent = item.name;
             let iconBox = document.createElement("img")
             iconBox.src = item.icon;
