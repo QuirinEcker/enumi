@@ -82,13 +82,15 @@ class List {
 
     displayItemsBySearch(search, list) {
         list.forEach((item) => {
-            let itemName = item.children[1].textContent.toLowerCase();
-            let searchToLowerCase = search.toLowerCase();
+            if (item.children.length > 1) {
+                let itemName = item.children[1].textContent.toLowerCase();
+                let searchToLowerCase = search.toLowerCase();
 
-            if (itemName.includes(searchToLowerCase)) {
-                item.style.display = "flex";
-            } else {
-                item.style.display = "none";
+                if (itemName.includes(searchToLowerCase)) {
+                    item.style.display = "flex";
+                } else {
+                    item.style.display = "none";
+                }
             }
         });
     }
