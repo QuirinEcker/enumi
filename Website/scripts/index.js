@@ -17,13 +17,22 @@ let password = localStorage.getItem("password");
 let email = localStorage.getItem("email");
 let currentKonto = new Konto(name, password, email);
 
-//currentKonto.enums.push(prompt.factoryEnum(currentKonto, "musterEnum", "", "", ""));
+let itemList = document.querySelector("#current-list");
+let recomendedList = document.querySelector("#recommended-list");
+itemList.style.display = "none";
+recomendedList.style.display = "none";
+
 let currentEnum;
 
 console.log("Welcome " + currentKonto.username);
 
 function listMatcher() {
     let enums = currentKonto.enums;
+    let itemList = document.querySelector("#current-list");
+    let recomendedList = document.querySelector("#recommended-list");
+
+    itemList.style.display = "flex";
+    recomendedList.style.display = "flex";
 
     enums.forEach((enumList) => {
         let children = Array.from(this.parentElement.children);
