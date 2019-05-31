@@ -38,7 +38,7 @@ class List {
 
             let iconBox = document.createElement("span");
             iconBox.textContent = item.icon;
-            iconBox.classList.add("first-letter")
+            iconBox.classList.add("first-letter");
             newBox.appendChild(iconBox);
             newBox.appendChild(newTextBox);
             currentList.appendChild(newBox);

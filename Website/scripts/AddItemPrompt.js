@@ -21,6 +21,7 @@ class AddItemPrompt {
         let promptBackground = document.querySelector("#addItem-prompt-background");
         let prompt = document.querySelector("#addItem-prompt");
         let promptContainer = document.querySelector("#addItem-prompt-container");
+        this.resetInputs();
 
         promptBackground.style.opacity = "0";
         prompt.style.transform = "scale(0,0)";
@@ -34,9 +35,11 @@ class AddItemPrompt {
     resetInputs() {
         let nameArea = document.querySelector("#addItem-prompt-input-name");
         let catigoryArea = document.querySelector("#addItem-prompt-input-catigory");
+        let menubarTitle = document.querySelector("#addItem-prompt-title");
 
         nameArea.value = "";
         catigoryArea.value = "c0"
+        menubarTitle.textContent = "";
     }
 
     getData() {
