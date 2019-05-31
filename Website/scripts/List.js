@@ -27,8 +27,9 @@ class List {
 
             let newTextBox = document.createElement("span");
             newTextBox.textContent = item.name;
-            let iconBox = document.createElement("img");
-            iconBox.src = item.icon;
+            let iconBox = document.createElement("span");
+            iconBox.textContent = item.icon;
+            iconBox.classList.add("first-letter")
             newBox.appendChild(iconBox);
             newBox.appendChild(newTextBox);
             currentList.appendChild(newBox);

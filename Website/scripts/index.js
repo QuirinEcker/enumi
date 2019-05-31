@@ -50,9 +50,13 @@ window.addEventListener("load", () => {
     let iconTitlePreview = document.querySelector("#title-bar-current-icon");
     let iconSelectPreview = document.querySelector("#current-icon");
 
-    let addItemButton = document.querySelector('#addItem-button');
     let currentSearchBar = document.querySelector('#search-currrent');
     let recommendedSearchBar = document.querySelector('#search-recommended');
+
+    let addItemButton = document.querySelector('#addItem-button');
+    let addItemPromptCancel = document.querySelector("#addItem-prompt-cancel-button");
+    let addItemPromptSubmit = document.querySelector("#addItem-prompt-submit-button");
+    let addItemPromptBackground = document.querySelector("#addItem-prompt-background");
 
     iconTitlePreview.src = prompt.icon;
     iconSelectPreview.src = prompt.icon;
@@ -78,12 +82,6 @@ window.addEventListener("load", () => {
         setting.addEventListener("mouseout", function() {settingBar.hideSetting(setting)});
     });
 
-    addItemButton.addEventListener("click", () => {
-        // let name = itemCreatePrompt.openPrompt();
-        // list.createItem(currentEnum, name, "/img/listIcons/settings.svg", "/img/listIcons/settings.svg")
-        addItemPrompt.openPrompt()
-    });
-
     list.adjustItemSize();
     prompt.adjustListIconSize();
     window.onresize = () => {
@@ -100,6 +98,22 @@ window.addEventListener("load", () => {
         let recomendedListBox = Array.from(document.querySelector("#recomended-content-box").children);
         list.displayItemsBySearch(this.value, recomendedListBox);
     })
+
+    addItemButton.addEventListener("click", () => {
+        addItemPrompt.openPrompt()
+    });
+    addItemPromptBackground.addEventListener("click", () => {
+       addItemPrompt.closePrompt()
+    });
+
+    addItemPromptCancel.addEventListener("click", () => {
+       addItemPrompt.closePrompt()
+    });
+
+    addItemPromptSubmit.addEventListener("click", () => {
+       list.createItem(currentEnum, addItemPrompt.getData().name, addItemPrompt.getData().catigory, addItemPrompt.getData().icon);
+       addItemPrompt.closePrompt();
+    });
 });
 
 export {listMatcher};

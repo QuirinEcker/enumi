@@ -96,6 +96,17 @@
 	cursor: pointer;
 }
 
+.item .first-letter {
+	font-size: 10vh;
+	height: 8vh;
+	margin: 0;
+	padding: 0;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .item img {
 	width: 60%;
 	height: 60%;

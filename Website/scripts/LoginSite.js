@@ -1,4 +1,5 @@
 import {Konto} from "./Classes/Konto.js";
+import {Enum} from "./Classes/Enum.js";
 
 window.addEventListener('load', () => {
     let button = document.querySelector("#login-button-container button");
@@ -6,6 +7,10 @@ window.addEventListener('load', () => {
         new Konto("MaxMustermann", "muster", "m.mustermann@gmail.com"),
         new Konto("Felix", "iLikeMinecraft", "f.woess@gmail.com")
     ];
+
+    kontos.forEach((item) => {
+        item.enums.push(new Enum("musterlist", "", "sdf", "/img/logo.svg"))
+    })
 
     button.addEventListener('click', function() {
         let loginBox = this.parentElement.parentElement;
