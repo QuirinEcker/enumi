@@ -150,12 +150,11 @@ class Prompt {
         let description = descriptionBox.value;
         let nameBox = document.querySelector('#input-list-name');
         let name = nameBox.value;
+        let catigories = this.getCatigories()
         this.resetInputs();
 
         if (this.noError(description, name)) {
-            let catigories = this.getCatigories()
-
-            let newEnum = new Enum(name, "", description, icon, "");
+            let newEnum = new Enum(name, catigories, description, icon, "");
             this.writeIntoEnumList(newEnum)
             konto.enums.push(newEnum);
         } else
@@ -313,12 +312,16 @@ class Prompt {
 
     getCatigories() {
         let catigoryContainer = document.querySelector("#tags");
-        let catigory = new Array();
+        let catigoryContainerChildren = Array.from(catigoryContainer.children);
+        let catigories = new Array();
 
-        while (catigoryContainer.children.length > 1) {
-            catigoryContainer.removeChild(catigoryContainer.firstElementChild)
-            catigory.add()
-        }
+        catigoryContainerChildren.forEach((item) => {
+            if (!item.classList.contains("addCatigory")) {
+                catigories.push(item.firstElementChild.textContent)
+            }
+        })
+
+        return catigories;
     }
 }
 

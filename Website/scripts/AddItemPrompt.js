@@ -1,10 +1,21 @@
 let status = false;
 
 class AddItemPrompt {
-    openPrompt() {
+    openPrompt(currentEnum) {
         let promptBackground = document.querySelector("#addItem-prompt-background");
         let prompt = document.querySelector("#addItem-prompt");
         let promptContainer = document.querySelector("#addItem-prompt-container");
+        let catigoriesSelector = document.querySelector("#addItem-prompt-input-catigory");
+        let catigories = currentEnum.catigories;
+        console.log(currentEnum);
+
+        catigories.forEach((item, index) => {
+            let selectorElement = document.createElement("option");
+            selectorElement.innerHTML = item;
+            selectorElement.value = "c" + parseInt(index + 1)
+
+            catigoriesSelector.appendChild(selectorElement);
+        })
 
         console.log("... opan promtus");
 
@@ -36,6 +47,11 @@ class AddItemPrompt {
         let nameArea = document.querySelector("#addItem-prompt-input-name");
         let catigoryArea = document.querySelector("#addItem-prompt-input-catigory");
         let menubarTitle = document.querySelector("#addItem-prompt-title");
+        let catigoriesSelector = document.querySelector("#addItem-prompt-input-catigory");
+
+        while (catigoriesSelector.children.length > 1) {
+            catigoriesSelector.removeChild(catigoriesSelector.lastElementChild);
+        }
 
         nameArea.value = "";
         catigoryArea.value = "c0"

@@ -129,8 +129,9 @@ window.addEventListener("load", () => {
     })
 
     addItemButton.addEventListener("click", () => {
-        addItemPrompt.openPrompt()
+        addItemPrompt.openPrompt(currentEnum)
     });
+
     addItemPromptBackground.addEventListener("click", () => {
        addItemPrompt.closePrompt()
     });
