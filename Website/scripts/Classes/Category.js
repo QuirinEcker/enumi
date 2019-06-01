@@ -4,3 +4,5 @@ class Category {
         this.id = id;
     }
 }
+
+export {Category};

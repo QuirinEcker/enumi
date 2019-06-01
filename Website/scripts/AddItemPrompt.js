@@ -11,8 +11,8 @@ class AddItemPrompt {
 
         catigories.forEach((item, index) => {
             let selectorElement = document.createElement("option");
-            selectorElement.innerHTML = item;
-            selectorElement.value = "c" + parseInt(index + 1)
+            selectorElement.innerHTML = item.name;
+            selectorElement.value = item.id;
 
             catigoriesSelector.appendChild(selectorElement);
         })

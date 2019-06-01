@@ -13,6 +13,10 @@ class Enum {
         this.recommendedItems = new Array();
         numberOfEnums++;
     }
+
+    static getNextID() {
+        return numberOfEnums;
+    }
 }
 
 export {Enum};

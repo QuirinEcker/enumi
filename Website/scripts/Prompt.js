@@ -1,4 +1,5 @@
 import {Enum} from "/scripts/Classes/Enum.js"
+import {Category} from "./Classes/Category.js";
 import {listMatcher} from "./index.js";
 
 let icon = "/img/logo.svg";
@@ -315,9 +316,10 @@ class Prompt {
         let catigoryContainerChildren = Array.from(catigoryContainer.children);
         let catigories = new Array();
 
-        catigoryContainerChildren.forEach((item) => {
+        catigoryContainerChildren.forEach((item , index) => {
             if (!item.classList.contains("addCatigory")) {
-                catigories.push(item.firstElementChild.textContent)
+                let category = new Category(item.firstElementChild.textContent,"e" + Enum.getNextID() + "c" + parseInt(index + 1));
+                catigories.push(category)
             }
         })
 
