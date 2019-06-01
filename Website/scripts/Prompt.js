@@ -55,6 +55,12 @@ class Prompt {
         let inputFild = document.querySelector("#prompt-content input");
         let textarea = document.querySelector("#prompt-content textarea");
         let informationContainer = document.querySelector("#information-container");
+        let catigoriesContainer = document.querySelector('#tags')
+
+        while (catigoriesContainer.children.length > 0) {
+            console.log(catigoriesContainer.lastChild)
+            catigoriesContainer.removeChild(catigoriesContainer.lastChild);
+        }
 
         console.log(inputFild);
         console.log(textarea);
