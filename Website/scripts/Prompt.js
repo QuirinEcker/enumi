@@ -240,10 +240,12 @@ class Prompt {
             let upButton = document.createElement("div");
             upButton.classList.add("tags-catigory-up")
             upButton.innerHTML = " &uarr; "
+            upButton.addEventListener("click", this.categoryUp)
 
-            let downButton = document.createElement("div");
+            let downButton = document.createElement("div")
             downButton.classList.add("tags-catigory-down")
             downButton.innerHTML = " &darr; "
+            downButton.addEventListener("click", this.categoryDown)
 
             container.appendChild(textBox);
             container.appendChild(arrowButtonsContainer);
@@ -303,6 +305,27 @@ class Prompt {
             catigoryContainer.insertBefore(container, addButton)
         }
     }
+
+    categoryUp() {
+        console.log(this);
+        let categoryParentElement = this.parentElement.parentElement.parentElement;
+        let categoryParentElementChildren = Array.from(this.parentElement.parentElement.parentElement.children);
+        let clickedCategory = this.parentElement.parentElement;
+        let clickedCategoryIndex = categoryParentElementChildren.indexOf(clickedCategory);
+
+        categoryParentElement.insertBefore(clickedCategory, categoryParentElement.children[clickedCategoryIndex - 1])
+    }
+
+    categoryDown() {
+        console.log(this);
+        let categoryParentElement = this.parentElement.parentElement.parentElement;
+        let categoryParentElementChildren = Array.from(this.parentElement.parentElement.parentElement.children);
+        let clickedCategory = this.parentElement.parentElement;
+        let clickedCategoryIndex = categoryParentElementChildren.indexOf(clickedCategory);
+
+        categoryParentElement.insertBefore(clickedCategory, categoryParentElement.children[clickedCategoryIndex + 2])
+    }
+
 
     static setuptPrompt() {
         icon = standartIcon;
