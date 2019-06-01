@@ -6,6 +6,7 @@ let icon = "/img/logo.svg";
 let standartIcon = "/img/logo.svg";
 const maxNameLenght = 15;
 let status = false;
+let defaultCategory = new Category("default", "c0");
 
 class Prompt {
     writeIntoEnumList(enumListObject) {
@@ -321,7 +322,9 @@ class Prompt {
                 let category = new Category(item.firstElementChild.textContent,"e" + Enum.getNextID() + "c" + parseInt(index + 1));
                 catigories.push(category)
             }
-        })
+        });
+
+        catigories.push(defaultCategory);
 
         return catigories;
     }

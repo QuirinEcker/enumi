@@ -1,5 +1,7 @@
 import {Item} from "./Classes/Item.js";
-import {currentEnum} from "./index.js";
+//import {currentEnum} from "./index.js";
+
+let currentEnum;
 
 class List {
     refreshItems(enumList) {
@@ -7,6 +9,7 @@ class List {
         let currentList = document.querySelector("#current-content-box")
         let items = this.sortByCategory(enumList.items);
         let recommendedItems = this.sortByCategory(enumList.recommendedItems);
+        currentEnum = enumList;
 
         console.log(items);
         console.log(recommendedItems);
@@ -145,7 +148,16 @@ class List {
     }
 
     compare(o1, o2) {
-        return (o1.id<o2.id?-1:(o1.id>o2.id?1:0));
+        let d1 = currentEnum.catigories.indexOf(o1.catigory);
+        let d2 = currentEnum.catigories.indexOf(o2.catigory);
+
+        if (d1 > d2) {
+            return 1;
+        } else if (d1 < d2) {
+            return -1;
+        } else if (d1 === d2) {
+            return 0;
+        }
     }
 }
 
