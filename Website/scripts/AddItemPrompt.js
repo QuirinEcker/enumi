@@ -49,7 +49,7 @@ class AddItemPrompt {
         let menubarTitle = document.querySelector("#addItem-prompt-title");
         let catigoriesSelector = document.querySelector("#addItem-prompt-input-catigory");
 
-        while (catigoriesSelector.children.length > 1) {
+        while (catigoriesSelector.children.length > 0) {
             catigoriesSelector.removeChild(catigoriesSelector.lastElementChild);
         }
 
