@@ -57,9 +57,10 @@ class Prompt {
         let informationContainer = document.querySelector("#information-container");
         let catigoriesContainer = document.querySelector('#tags')
 
-        while (catigoriesContainer.children.length > 0) {
-            console.log(catigoriesContainer.lastChild)
-            catigoriesContainer.removeChild(catigoriesContainer.lastChild);
+        while (catigoriesContainer.children.length > 1) {
+            if (!catigoriesContainer.firstElementChild.classList.contains("addCatigory")) {
+                catigoriesContainer.removeChild(catigoriesContainer.firstChild);
+            }
         }
 
         console.log(inputFild);
@@ -152,6 +153,8 @@ class Prompt {
         this.resetInputs();
 
         if (this.noError(description, name)) {
+            let catigories = this.getCatigories()
+
             let newEnum = new Enum(name, "", description, icon, "");
             this.writeIntoEnumList(newEnum)
             konto.enums.push(newEnum);
@@ -219,12 +222,103 @@ class Prompt {
         return status;
     }
 
+    confirmCatigory(catigoryContainer, inputfield, name) {
+        if (name == "")  {
+            inputfield.firstElementChild.placeholder = "No Name entered";
+            inputfield.firstElementChild.value = "";
+        } else {
+            let container = document.createElement("div");
+            container.classList.add("tags-catigory");
+
+            let textBox = document.createElement("span")
+            textBox.textContent = name;
+
+            let arrowButtonsContainer = document.createElement("div")
+            arrowButtonsContainer.classList.add("up-down-container")
+
+            let upButton = document.createElement("div");
+            upButton.classList.add("tags-catigory-up")
+            upButton.innerHTML = " &uarr; "
+
+            let downButton = document.createElement("div");
+            downButton.classList.add("tags-catigory-down")
+            downButton.innerHTML = " &darr; "
+
+            container.appendChild(textBox);
+            container.appendChild(arrowButtonsContainer);
+
+            arrowButtonsContainer.appendChild(upButton);
+            arrowButtonsContainer.appendChild(downButton);
+
+            catigoryContainer.insertBefore(container, inputfield);
+            catigoryContainer.removeChild(inputfield);
+        }
+    }
+
+    cancelCatigory(catigoryContainer, inputfield) {
+        catigoryContainer.removeChild(inputfield);
+    }
+
+    createNewCatigoryPrompt() {
+        let promptAllreadyCreated = false;
+        let catigoryContainer = document.querySelector("#tags")
+        let addButton = document.querySelector("#addCatigory")
+        let catigoryContainerChildren = Array.from(catigoryContainer.children)
+
+        catigoryContainerChildren.forEach((item) => {
+            if (item.classList.contains("inputfield")) {
+                promptAllreadyCreated = true;
+            }
+        })
+
+        if (!promptAllreadyCreated) {
+            console.log(this)
+            let container = document.createElement("div")
+            container.classList.add("tags-catigory")
+            container.classList.add("inputfield")
+
+            let input = document.createElement("input")
+            input.type = "text";
+            input.placeholder = "Catigory Name"
+
+            let buttonContainer = document.createElement("div")
+            buttonContainer.classList.add("confirm-buttons")
+
+            let confirmButton = document.createElement("button")
+            confirmButton.classList.add("confirm")
+            confirmButton.innerHTML = " &check; "
+            confirmButton.addEventListener("click", () => {this.confirmCatigory(catigoryContainer, container, input.value)})
+
+            let cancelButton = document.createElement("button")
+            cancelButton.classList.add("cancel")
+            cancelButton.innerHTML = " &times; "
+            cancelButton.addEventListener("click", () => {this.cancelCatigory(catigoryContainer, container)})
+
+            container.appendChild(input)
+            container.appendChild(buttonContainer)
+            buttonContainer.appendChild(confirmButton)
+            buttonContainer.appendChild(cancelButton)
+
+            catigoryContainer.insertBefore(container, addButton)
+        }
+    }
+
     static setuptPrompt() {
         icon = standartIcon;
         let previewIcon = document.querySelector("#title-bar-current-icon");
         let previewIconTitleBar = document.querySelector("#current-icon");
         previewIcon.src = icon;
         previewIconTitleBar.src = icon;
+    }
+
+    getCatigories() {
+        let catigoryContainer = document.querySelector("#tags");
+        let catigory = new Array();
+
+        while (catigoryContainer.children.length > 1) {
+            catigoryContainer.removeChild(catigoryContainer.firstElementChild)
+            catigory.add()
+        }
     }
 }
 

@@ -73,6 +73,8 @@ window.addEventListener("load", () => {
     let addItemPromptBackground = document.querySelector("#addItem-prompt-background");
     let addItemPromptInputName = document.querySelector("#addItem-prompt-input-name");
 
+    let addCatigoryButton = document.querySelector("#addCatigory")
+
     iconTitlePreview.src = prompt.icon;
     iconSelectPreview.src = prompt.icon;
 
@@ -146,6 +148,9 @@ window.addEventListener("load", () => {
        addItemPrompt.refreshMenuBarTitle();
     });
 
+    addCatigoryButton.addEventListener("click", () => {
+        prompt.createNewCatigoryPrompt()
+    });
 });
 
 export {listMatcher};
