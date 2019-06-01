@@ -37,6 +37,14 @@
     border-radius: 20px;
 }
 
+.up-down-container div {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
 .confirm-buttons {
     display: flex;
     justify-content: space-evenly;
