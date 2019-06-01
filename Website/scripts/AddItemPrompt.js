@@ -58,14 +58,22 @@ class AddItemPrompt {
         menubarTitle.textContent = "";
     }
 
-    getData() {
+    getData(currentEnum) {
         let nameArea = document.querySelector("#addItem-prompt-input-name");
         let catigoryArea = document.querySelector("#addItem-prompt-input-catigory");
         let icon = nameArea.value.charAt(0).toUpperCase();
+        let categories = currentEnum.catigories;
+        let category = ""
+
+        categories.forEach((item) => {
+           if (item.id === catigoryArea.value) {
+               category = item;
+           }
+        });
 
         return {
             name: nameArea.value,
-            catigoryArea: catigoryArea.value,
+            catigoryArea: category,
             icon: icon
         }
     }
@@ -74,7 +82,6 @@ class AddItemPrompt {
         let nameArea = document.querySelector("#addItem-prompt-input-name");
         let menubarTitle = document.querySelector("#addItem-prompt-title");
         menubarTitle.textContent = nameArea.value;
-
     }
 
     isOpened() {

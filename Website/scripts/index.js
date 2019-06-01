@@ -98,7 +98,7 @@ window.addEventListener("load", () => {
             if (prompt.isOpened())
                 prompt.createNewEnum(currentKonto);
             if (addItemPrompt.isOpened()) {
-                list.createItem(currentEnum, addItemPrompt.getData().name, addItemPrompt.getData().catigory, addItemPrompt.getData().icon);
+                list.createItem(currentEnum, addItemPrompt.getData(currentEnum).name, addItemPrompt.getData(currentEnum).catigory, addItemPrompt.getData(currentEnum).icon);
                 addItemPrompt.closePrompt()
             }
         }
@@ -141,8 +141,13 @@ window.addEventListener("load", () => {
     });
 
     addItemPromptSubmit.addEventListener("click", () => {
-       list.createItem(currentEnum, addItemPrompt.getData().name, addItemPrompt.getData().catigory, addItemPrompt.getData().icon);
-       addItemPrompt.closePrompt();
+        let data = addItemPrompt.getData(currentEnum);
+        let name = data.name;
+        let category = data.catigoryArea;
+        let icon = data.icon;
+
+        list.createItem(currentEnum, name, category, icon);
+        addItemPrompt.closePrompt();
     });
 
     addItemPromptInputName.addEventListener("input", () => {

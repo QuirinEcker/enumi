@@ -5,8 +5,11 @@ class List {
     refreshItems(enumList) {
         let recoomendedList = document.querySelector("#recomended-content-box");
         let currentList = document.querySelector("#current-content-box")
-        let items = enumList.items;
-        let recommendedItems = enumList.recommendedItems;
+        let items = this.sortByCategory(enumList.items);
+        let recommendedItems = this.sortByCategory(enumList.recommendedItems);
+
+        console.log(items);
+        console.log(recommendedItems);
 
         while (currentList.children.length > 0) {
             currentList.removeChild(currentList.lastChild);
@@ -135,6 +138,14 @@ class List {
         searchbars.forEach((item) => {
             item.lastElementChild.value = "";
         })
+    }
+
+    sortByCategory(list) {
+        return list.sort(this.compare);
+    }
+
+    compare(o1, o2) {
+        return (o1.id<o2.id?-1:(o1.id>o2.id?1:0));
     }
 }
 
