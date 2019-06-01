@@ -6,7 +6,7 @@ let icon = "/img/logo.svg";
 let standartIcon = "/img/logo.svg";
 const maxNameLenght = 15;
 let status = false;
-let defaultCategory = new Category("default", "c0");
+let defaultCategory = new Category("sonstiges", "c0");
 
 class Prompt {
     writeIntoEnumList(enumListObject) {
