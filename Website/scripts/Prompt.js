@@ -95,9 +95,6 @@ class Prompt {
             }
         }
 
-        console.log(inputFild);
-        console.log(textarea);
-
         inputFild.value = "";
         textarea.value = "";
         this.removeErrorMessage(inputFild, informationContainer);
@@ -145,13 +142,33 @@ class Prompt {
         let prompt = document.querySelector('#prompt');
         let promptContainer = document.querySelector('#prompt-container');
         let clickedEnum = getEnumByID(clickedHTMLElement.parentElement.parentElement.parentElement.parentElement.id);
-        console.log(clickedHTMLElement.parentElement.parentElement.parentElement.parentElement.id);
-        console.log(clickedEnum);
 
         let editButton = document.querySelector("#edit-button");
         let submitButton = document.querySelector("#submit-button");
         editButton.style.display = "flex";
         submitButton.style.display = "none";
+
+        let icon = clickedEnum.iconPicture;
+        let previewIcon = document.querySelector("#title-bar-current-icon");
+        let previewIconTitleBar = document.querySelector("#current-icon");
+        previewIcon.src = icon;
+        previewIconTitleBar.src = icon;
+
+        let inputFild = document.querySelector("#prompt-content input");
+        let textarea = document.querySelector("#prompt-content textarea");
+        let informationContainer = document.querySelector("#information-container");
+        let catigoriesContainer = document.querySelector('#tags');
+
+        inputFild.value = clickedEnum.name;
+        textarea.value = clickedEnum.description;
+        document.querySelector("#title").textContent = clickedEnum.name;
+
+        let catigoryContainer = document.querySelector("#tags")
+        let catigories = clickedEnum.catigories;
+
+        catigories.forEach((item) => {
+
+        });
 
         promptContainer.style.display = "flex";
         setTimeout(() => {
