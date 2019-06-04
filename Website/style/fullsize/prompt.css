@@ -338,6 +338,28 @@
     transition: all 0.5s;
 }
 
+#prompt #prompt-submit-box #button-container #edit-button {
+    width: 45%;
+    height: 40%;
+    display: none;
+
+    color: black;
+    background-color: white;
+    border-radius: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
 #prompt #prompt-submit-box #button-container #cancel-button {
     width: 45%;
     height: 40%;
@@ -364,5 +386,9 @@
 }
 
 #prompt #prompt-submit-box #button-container #submit-button:hover {
+    background-color: lightgreen;
+}
+
+#prompt #prompt-submit-box #button-container #edit-button:hover {
     background-color: lightgreen;
 }
