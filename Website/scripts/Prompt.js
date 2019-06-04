@@ -491,6 +491,15 @@ class Prompt {
         if (securityNameConfirm === this.parentElement.parentElement.firstElementChild.textContent) {
             this.parentElement.parentElement.parentElement.parentElement.style.display = "none";
         }
+
+        let itemList = document.querySelector("#current-list");
+        let recomendedList = document.querySelector("#recommended-list");
+
+        console.log(itemList);
+        console.log(recomendedList);
+
+        itemList.style.display = "none";
+        recomendedList.style.display = "none";
     }
 }
 

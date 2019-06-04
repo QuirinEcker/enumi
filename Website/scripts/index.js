@@ -31,8 +31,10 @@ function listMatcher() {
     let itemList = document.querySelector("#current-list");
     let recomendedList = document.querySelector("#recommended-list");
 
-    itemList.style.display = "flex";
-    recomendedList.style.display = "flex";
+    if (this.style.display != "none") {
+        itemList.style.display = "flex";
+        recomendedList.style.display = "flex";
+    }
 
     enums.forEach((enumList) => {
         let children = Array.from(this.parentElement.children);
