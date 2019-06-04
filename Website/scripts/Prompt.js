@@ -464,9 +464,12 @@ class Prompt {
         let indexInList = currentKonto.enums.indexOf(listInEdit);
 
         currentKonto.enums[currentKonto.enums.indexOf(listInEdit)] = listInEdit;
+        let allEnums = currentKonto.enums;
 
         this.removeAllEnums();
-        this.writeIntoEnumList(listInEdit)
+        allEnums.forEach((item) => {
+            this.writeIntoEnumList(item);
+        })
         this.adjustListIconSize();
 
         status = false;
