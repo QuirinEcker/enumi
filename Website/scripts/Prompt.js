@@ -13,8 +13,13 @@ class Prompt {
         let addButton = document.querySelector("#enum-add");
         let enumList = document.querySelector("#enum-list");
 
-        let textElement = document.createElement("span");
-        textElement.textContent = enumListObject.name;
+        let enumElement = document.createElement("div");
+        enumElement.classList.add("enum");
+        enumElement.id = enumListObject.id;
+        enumElement.addEventListener('click', listMatcher);
+
+        let contentElement = document.createElement("div");
+        contentElement.classList.add("content");
 
         let iconElementContainer = document.createElement("div");
         iconElementContainer.classList.add("icon-container");
@@ -23,18 +28,37 @@ class Prompt {
         iconElement.classList.add("icon");
         iconElement.src = enumListObject.iconPicture;
 
-        let contentElement = document.createElement("div");
-        contentElement.classList.add("content");
+        let titleContainer = document.createElement("div");
+        titleContainer.classList.add("title-container");
 
-        let enumElement = document.createElement("div");
-        enumElement.classList.add("enum");
-        enumElement.id = enumListObject.id;
-        enumElement.addEventListener('click', listMatcher);
+        let settingContainer = document.createElement("div");
+        settingContainer.classList.add("enum-settings-container");
+
+        let textElement = document.createElement("span");
+        textElement.textContent = enumListObject.name;
+
+        let editButton = document.createElement("div");
+        editButton.classList.add("edit-list");
+
+        let editImg = document.createElement("img");
+        editImg.src = "";
+
+        let deleteButton = document.createElement("div");
+        deleteButton.classList.add("delete-list");
+
+        let deleteImg = document.createElement("div");
+        deleteImg.src = "";
 
         enumElement.appendChild(contentElement);
-        contentElement.appendChild(textElement);
-        contentElement.insertBefore(iconElementContainer, textElement);
+        contentElement.appendChild(titleContainer);
+        contentElement.insertBefore(iconElementContainer, titleContainer);
         iconElementContainer.appendChild(iconElement);
+        titleContainer.appendChild(textElement);
+        titleContainer.appendChild(settingContainer);
+        settingContainer.appendChild(editButton);
+        settingContainer.appendChild(deleteButton);
+        editButton.appendChild(editImg);
+        deleteButton.appendChild(deleteImg);
 
         enumList.insertBefore(enumElement, addButton);
         this.closePrompt();
