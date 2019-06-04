@@ -60,7 +60,7 @@ class List {
             let newTextBox = document.createElement("span");
             let compressedName = item.name;
             if (item.name.length > 10) {
-                compressedName = ""
+                compressedName = "";
                 for (let i = 0; i < 7; i++)
                     compressedName += item.name.charAt(i);
                 compressedName += "...";

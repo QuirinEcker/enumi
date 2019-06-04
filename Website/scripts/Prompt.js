@@ -42,8 +42,9 @@ class Prompt {
         editButton.classList.add("edit-list");
         let editPromptFunktion = this.openPromptForEdit;
         let geEnumByID = this.getEunumByID;
+        let prompt = this;
         editButton.addEventListener("click", function() {
-            editPromptFunktion(this, geEnumByID);
+            editPromptFunktion(this, geEnumByID, prompt);
         });
 
         let editImg = document.createElement("img");
@@ -136,10 +137,10 @@ class Prompt {
         status = true;
     }
 
-    openPromptForEdit(clickedHTMLElement, getEnumByID) {
+    openPromptForEdit(clickedHTMLElement, getEnumByID, prompt) {
         Prompt.setuptPrompt();
         let promptBackground = document.querySelector('#prompt-background');
-        let prompt = document.querySelector('#prompt');
+        let promptWindow = document.querySelector('#prompt');
         let promptContainer = document.querySelector('#prompt-container');
         let clickedEnum = getEnumByID(clickedHTMLElement.parentElement.parentElement.parentElement.parentElement.id);
 
@@ -163,17 +164,20 @@ class Prompt {
         textarea.value = clickedEnum.description;
         document.querySelector("#title").textContent = clickedEnum.name;
 
-        let catigoryContainer = document.querySelector("#tags")
+        let catigoryContainer = document.querySelector("#tags");
+        let addButton = document.querySelector("#addCatigory");
         let catigories = clickedEnum.catigories;
 
         catigories.forEach((item) => {
-
+            if (item.id != "c0") {
+                prompt.writeCategoryIntoList(item.name, catigoryContainer, addButton)
+            }
         });
 
         promptContainer.style.display = "flex";
         setTimeout(() => {
             promptBackground.style.opacity = "0.8";
-            prompt.style.transform = "scale(1,1)";
+            promptWindow.style.transform = "scale(1,1)";
         }, 100);
 
         status = true;
@@ -303,34 +307,38 @@ class Prompt {
             inputfield.firstElementChild.placeholder = "No Name entered";
             inputfield.firstElementChild.value = "";
         } else {
-            let container = document.createElement("div");
-            container.classList.add("tags-catigory");
-
-            let textBox = document.createElement("span")
-            textBox.textContent = name;
-
-            let arrowButtonsContainer = document.createElement("div")
-            arrowButtonsContainer.classList.add("up-down-container")
-
-            let upButton = document.createElement("div");
-            upButton.classList.add("tags-catigory-up")
-            upButton.innerHTML = " &uarr; "
-            upButton.addEventListener("click", this.categoryUp)
-
-            let downButton = document.createElement("div")
-            downButton.classList.add("tags-catigory-down")
-            downButton.innerHTML = " &darr; "
-            downButton.addEventListener("click", this.categoryDown)
-
-            container.appendChild(textBox);
-            container.appendChild(arrowButtonsContainer);
-
-            arrowButtonsContainer.appendChild(upButton);
-            arrowButtonsContainer.appendChild(downButton);
-
-            catigoryContainer.insertBefore(container, inputfield);
+            this.writeCategoryIntoList(name, catigoryContainer, inputfield);
             catigoryContainer.removeChild(inputfield);
         }
+    }
+
+    writeCategoryIntoList(name, catigoryContainer, inputfield) {
+        let container = document.createElement("div");
+        container.classList.add("tags-catigory");
+
+        let textBox = document.createElement("span")
+        textBox.textContent = name;
+
+        let arrowButtonsContainer = document.createElement("div")
+        arrowButtonsContainer.classList.add("up-down-container")
+
+        let upButton = document.createElement("div");
+        upButton.classList.add("tags-catigory-up")
+        upButton.innerHTML = " &uarr; "
+        upButton.addEventListener("click", this.categoryUp)
+
+        let downButton = document.createElement("div")
+        downButton.classList.add("tags-catigory-down")
+        downButton.innerHTML = " &darr; "
+        downButton.addEventListener("click", this.categoryDown)
+
+        container.appendChild(textBox);
+        container.appendChild(arrowButtonsContainer);
+
+        arrowButtonsContainer.appendChild(upButton);
+        arrowButtonsContainer.appendChild(downButton);
+
+        catigoryContainer.insertBefore(container, inputfield);
     }
 
     cancelCatigory(catigoryContainer, inputfield) {
