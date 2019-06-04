@@ -80,7 +80,7 @@
 	-moz-border-radius: 100%;
 	border-radius: 100%;
 
-	background-color: red;
+	background-color: white;
 	-webkit-transition: background-color 0.5s;
 	-moz-transition: background-color 0.5s;
 	-ms-transition: background-color 0.5s;
@@ -89,7 +89,7 @@
 }
 
 .enum .content .title-container .delete-list:hover {
-	background-color: #b30000;
+	background-color: #f08080;
 }
 
 .enum .content .title-container .edit-list {
@@ -100,7 +100,7 @@
 	-moz-border-radius: 100%;
 	border-radius: 100%;
 
-	background-color: brown;
+	background-color: white;
 	-webkit-transition: background-color 0.5s;
 	-moz-transition: background-color 0.5s;
 	-ms-transition: background-color 0.5s;
@@ -109,7 +109,7 @@
 }
 
 .enum .content .title-container .edit-list:hover {
-	background-color: #661f1f;
+	background-color: brown;
 }
 
 .enum .content span {

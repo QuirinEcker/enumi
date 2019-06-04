@@ -161,3 +161,4 @@ window.addEventListener("load", () => {
 
 export {listMatcher};
 export {currentEnum};
+export {currentKonto};

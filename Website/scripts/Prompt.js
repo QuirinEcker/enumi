@@ -1,6 +1,7 @@
 import {Enum} from "/scripts/Classes/Enum.js"
 import {Category} from "./Classes/Category.js";
 import {listMatcher} from "./index.js";
+import {currentKonto} from "./index.js";
 
 let icon = "/img/logo.svg";
 let standartIcon = "/img/logo.svg";
@@ -39,6 +40,9 @@ class Prompt {
 
         let editButton = document.createElement("div");
         editButton.classList.add("edit-list");
+        editButton.addEventListener("click", () => {
+           this.openPromptForEdit();
+        });
 
         let editImg = document.createElement("img");
         editImg.src = "";
@@ -118,6 +122,32 @@ class Prompt {
         let promptBackground = document.querySelector('#prompt-background');
         let prompt = document.querySelector('#prompt');
         let promptContainer = document.querySelector('#prompt-container');
+
+        let editButton = document.querySelector("#edit-button");
+        let submitButton = document.querySelector("#submit-button");
+        editButton.style.display = "none";
+        submitButton.style.display = "flex";
+
+        promptContainer.style.display = "flex";
+        setTimeout(() => {
+            promptBackground.style.opacity = "0.8";
+            prompt.style.transform = "scale(1,1)";
+        }, 100);
+
+        status = true;
+    }
+
+    openPromptForEdit(clickedHTMLElement) {
+        Prompt.setuptPrompt();
+        let promptBackground = document.querySelector('#prompt-background');
+        let prompt = document.querySelector('#prompt');
+        let promptContainer = document.querySelector('#prompt-container');
+        let clickedEnum = this.getEunumByID();
+
+        let editButton = document.querySelector("#edit-button");
+        let submitButton = document.querySelector("#submit-button");
+        editButton.style.display = "flex";
+        submitButton.style.display = "none";
 
         promptContainer.style.display = "flex";
         setTimeout(() => {
@@ -350,7 +380,6 @@ class Prompt {
         categoryParentElement.insertBefore(clickedCategory, categoryParentElement.children[clickedCategoryIndex + 2])
     }
 
-
     static setuptPrompt() {
         icon = standartIcon;
         let previewIcon = document.querySelector("#title-bar-current-icon");
@@ -374,6 +403,16 @@ class Prompt {
         catigories.push(defaultCategory);
 
         return catigories;
+    }
+
+    getEunumByID(id) {
+        let enums = currentKonto.enums;
+
+        enums.forEach((item) => {
+            if(item.id = id) {
+                return item;
+            }
+        });
     }
 }
 
