@@ -40,8 +40,10 @@ class Prompt {
 
         let editButton = document.createElement("div");
         editButton.classList.add("edit-list");
-        editButton.addEventListener("click", () => {
-           this.openPromptForEdit();
+        let editPromptFunktion = this.openPromptForEdit;
+        let geEnumByID = this.getEunumByID;
+        editButton.addEventListener("click", function() {
+            editPromptFunktion(this, geEnumByID);
         });
 
         let editImg = document.createElement("img");
@@ -137,12 +139,14 @@ class Prompt {
         status = true;
     }
 
-    openPromptForEdit(clickedHTMLElement) {
+    openPromptForEdit(clickedHTMLElement, getEnumByID) {
         Prompt.setuptPrompt();
         let promptBackground = document.querySelector('#prompt-background');
         let prompt = document.querySelector('#prompt');
         let promptContainer = document.querySelector('#prompt-container');
-        let clickedEnum = this.getEunumByID();
+        let clickedEnum = getEnumByID(clickedHTMLElement.parentElement.parentElement.parentElement.parentElement.id);
+        console.log(clickedHTMLElement.parentElement.parentElement.parentElement.parentElement.id);
+        console.log(clickedEnum);
 
         let editButton = document.querySelector("#edit-button");
         let submitButton = document.querySelector("#submit-button");
@@ -407,12 +411,15 @@ class Prompt {
 
     getEunumByID(id) {
         let enums = currentKonto.enums;
+        let enumList = "";
 
         enums.forEach((item) => {
-            if(item.id = id) {
-                return item;
+            if(item.id == id) {
+                enumList = item;
             }
         });
+
+        return enumList
     }
 }
 
