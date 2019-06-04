@@ -33,13 +33,12 @@ class List {
 
             let newTextBox = document.createElement("span");
             let compressedName = item.name;
-            if (item.name.length > 10) {
+            if (item.name.length > 8) {
                 compressedName = "";
-                for (let i = 0; i < 7; i++)
+                for (let i = 0; i < 5; i++)
                     compressedName += item.name.charAt(i);
                 compressedName += "...";
             }
-            console.log(compressedName);
             newTextBox.textContent = compressedName;
 
             let iconBox = document.createElement("span");
@@ -59,16 +58,14 @@ class List {
 
             let newTextBox = document.createElement("span");
             let compressedName = item.name;
-            if (item.name.length > 10) {
+            if (item.name.length > 8) {
                 compressedName = "";
-                for (let i = 0; i < 7; i++)
+                for (let i = 0; i < 5; i++)
                     compressedName += item.name.charAt(i);
                 compressedName += "...";
             }
-            console.log(compressedName);
             newTextBox.textContent = compressedName;
 
-            newTextBox.textContent = item.name;
             let iconBox = document.createElement("span")
             iconBox.textContent = item.icon;
             iconBox.classList.add("first-letter");

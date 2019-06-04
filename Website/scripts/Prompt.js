@@ -50,14 +50,14 @@ class Prompt {
         });
 
         let editImg = document.createElement("img");
-        editImg.src = "";
+        editImg.src = "/img/editpencil.svg";
 
         let deleteButton = document.createElement("div");
         deleteButton.classList.add("delete-list");
         deleteButton.addEventListener("click", this.removeList);
 
-        let deleteImg = document.createElement("div");
-        deleteImg.src = "";
+        let deleteImg = document.createElement("img");
+        deleteImg.src = "/img/deleteicon.svg";
 
         enumElement.appendChild(contentElement);
         contentElement.appendChild(titleContainer);

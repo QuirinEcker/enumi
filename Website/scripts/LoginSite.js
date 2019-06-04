@@ -4,7 +4,8 @@ import {Enum} from "./Classes/Enum.js";
 window.addEventListener('load', () => {
     let button = document.querySelector("#login-button-container button");
     let kontos = [
-        new Konto("MaxMustermann", "muster", "m.mustermann@gmail.com")
+        new Konto("MaxMustermann", "muster", "m.mustermann@gmail.com"),
+        new Konto("bauepete", "1234", "p.bauer@htl-leonding.ac.at")
     ];
 
     kontos.forEach((item) => {
