@@ -2,12 +2,14 @@ import {Enum} from "/scripts/Classes/Enum.js"
 import {Category} from "./Classes/Category.js";
 import {listMatcher} from "./index.js";
 import {currentKonto} from "./index.js";
+import {currentEnum} from "./index.js";
 
 let icon = "/img/logo.svg";
 let standartIcon = "/img/logo.svg";
 const maxNameLenght = 15;
 let status = false;
 let defaultCategory = new Category("sonstiges", "c0");
+let listInEdit;
 
 class Prompt {
     writeIntoEnumList(enumListObject) {
@@ -52,6 +54,7 @@ class Prompt {
 
         let deleteButton = document.createElement("div");
         deleteButton.classList.add("delete-list");
+        deleteButton.addEventListener("click", this.removeList);
 
         let deleteImg = document.createElement("div");
         deleteImg.src = "";
@@ -179,6 +182,8 @@ class Prompt {
             promptBackground.style.opacity = "0.8";
             promptWindow.style.transform = "scale(1,1)";
         }, 100);
+
+        listInEdit = clickedEnum;
 
         status = true;
     }
@@ -445,6 +450,44 @@ class Prompt {
         });
 
         return enumList
+    }
+
+    editList() {
+        let inputFild = document.querySelector("#prompt-content input");
+        let textarea = document.querySelector("#prompt-content textarea");
+
+        listInEdit.iconPicture = icon;
+        listInEdit.name = inputFild.value;
+        listInEdit.description = textarea.value;
+        listInEdit.catigories = this.getCatigories();
+
+        let indexInList = currentKonto.enums.indexOf(listInEdit);
+
+        currentKonto.enums[currentKonto.enums.indexOf(listInEdit)] = listInEdit;
+
+        this.removeAllEnums();
+        this.writeIntoEnumList(listInEdit)
+        this.adjustListIconSize();
+
+        status = false;
+    }
+
+    removeAllEnums() {
+        let enumContainer = document.querySelector("#enum-list");
+
+        while (enumContainer.children.length > 1) {
+            if (!enumContainer.firstElementChild.classList.contains("addCatigory")) {
+                enumContainer.removeChild(enumContainer.firstChild);
+            }
+        }
+    }
+
+    removeList() {
+        let securityNameConfirm = prompt("Do you really want to delete this List. Enter the name of the list to confirm that: ");
+        
+        if (securityNameConfirm === this.parentElement.parentElement.firstElementChild.textContent) {
+            this.parentElement.parentElement.parentElement.parentElement.style.display = "none";
+        }
     }
 }
 
