@@ -64,6 +64,54 @@
     padding-left: unset;
 }
 
+.enum .content .title-container .enum-settings-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+
+	width: 100px;
+}
+
+.enum .content .title-container .delete-list {
+	width: 40px;
+	height: 40px;
+
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+
+	background-color: red;
+	-webkit-transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;
+	-ms-transition: background-color 0.5s;
+	-o-transition: background-color 0.5s;
+	transition: background-color 0.5s;
+}
+
+.enum .content .title-container .delete-list:hover {
+	background-color: #b30000;
+}
+
+.enum .content .title-container .edit-list {
+	width: 40px;
+	height: 40px;
+
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+
+	background-color: brown;
+	-webkit-transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;
+	-ms-transition: background-color 0.5s;
+	-o-transition: background-color 0.5s;
+	transition: background-color 0.5s;
+}
+
+.enum .content .title-container .edit-list:hover {
+	background-color: #661f1f;
+}
+
 .enum .content span {
 	width: auto;
 	font-size: 3vw;

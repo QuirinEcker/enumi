@@ -30,9 +30,9 @@ window.addEventListener('load', () => {
                         loginWave.classList.add('enter-animation');
 
                         setTimeout(() => {
-                            localStorage.setItem("username", item.username)
-                            localStorage.setItem("password", item.password)
-                            localStorage.setItem("email", item.email)
+                            localStorage.setItem("username", item.username);
+                            localStorage.setItem("password", item.password);
+                            localStorage.setItem("email", item.email);
                             localStorage.setItem("enums", item.enums);
                             window.location.href = "/index.html";
                         }, 2000)
