@@ -35,12 +35,10 @@ window.addEventListener('load', () => {
                             localStorage.setItem("email", item.email);
                             localStorage.setItem("enums", item.enums);
                             window.location.href = "/index.html";
-                        }, 2000)
+                        }, 2000);
 
                     }, 1000)
                     loginBox.style.opacity = '0';
-
-
                 }
             }
         });

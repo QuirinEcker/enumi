@@ -1,6 +1,5 @@
 import {Item} from "./Classes/Item.js";
-//import {currentEnum} from "./index.js";
-
+import {contextMenu} from "./index.js";
 let currentEnum;
 
 class List {
@@ -29,6 +28,9 @@ class List {
             newBox.id = "it" + item.id;
             newBox.addEventListener("click", () => {
                 this.moveRecommended(item, enumList)
+            });
+            newBox.addEventListener("contextmenu", function () {
+                contextMenu.openContextMenu(this, currentList);
             });
 
             let newTextBox = document.createElement("span");

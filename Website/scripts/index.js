@@ -4,13 +4,14 @@ import {List} from "./List.js";
 import {ItemCreatePrompt} from "./ItemCreatePrompt.js"
 import {Konto} from "./Classes/Konto.js";
 import {AddItemPrompt} from "./AddItemPrompt.js";
-import {Enum} from "./Classes/Enum.js";
+import {ContextMenu} from "./ContextMenu.js";
 
 let prompt = new Prompt();
 let settingBar = new SettingBar();
 let list = new List();
 let itemCreatePrompt = new ItemCreatePrompt();
 let addItemPrompt = new AddItemPrompt();
+let contextMenu = new ContextMenu();
 
 let name = localStorage.getItem("username");
 let password = localStorage.getItem("password");
@@ -170,3 +171,4 @@ window.addEventListener("load", () => {
 export {listMatcher};
 export {currentEnum};
 export {currentKonto};
+export {contextMenu};
